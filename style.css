@@ -1,92 +1,82 @@
 body{
-background: #687A8F;
 margin: 0%;
 padding: 0%;
-}
-
-.col-span-12{
-	width:100%;
-}
-.col-span-11{
-	width:91.6666667%;
-}
-.col-span-10{
-	width: 83.3333333%;
-}
-.col-span-9{
-	width: 75%;
-}
-.col-span-8{
-	width: 66.6666667%;
-}
-.col-span-7{
-	width: 58.3333333%;
-}
-.col-span-6{
-	width: 50%;
-}
-.col-span-5{
-	width: 41.6666667%;
-}
-.col-span-4{
-	width: 33.33333337%;
-}
-.col-span-3{
-	width: 25%;
-}
-.col-span-2{
-	width: 16.6666667%;
-}
-.col-span-1{
-	width: 8.33333333%;
-}
-
-#menu{
-	width: 100%;
-	height: 40px;
+}/*
+.header{
 	background: #F7C331;
-	vertical-align: top;
-}
+	width: 100%;
+	height: 110px;
+	position: relative;
+	display: block;
+	float: left;
+}*/
+.container{
+	/*background: #687A8F;*/
+	width: 100%;
+	float: left;
+	display: block;
 
+}
+.center{
+	width: 100%;
+	float: left;
+	padding: 10px;
+}
+.photoContainer{
+	display: block;
+	position: relative;
+	background: white;
+	width: 95%;
+	height: 600px;
+	border-radius: 4px;
+	box-shadow: 0 0 3px 1px rgba(0,0,0,.5);
+	padding: 10px;
+}
+.bigPhoto{
+	height: 530px;
+	width: 100%;
+	background: #b9b0b0;
+}
+.thumbnails{
+	height: 80px;
+	width: 100%;
+	margin-top: 10px;
+	overflow-x: auto;
+	overflow-y: hidden; 
+}
+.info{
+	color:white;
+	position:absolute;
+	z-index: 100;
+	padding-left: 100px;
+	padding-right: 100px;
+	text-align: justify;
+	font-size: 19px;
+	font-family: tahoma;
+	padding-top: 9%;
+}
 .img{
-    padding: .5%;
-    float: right;
+    float: left;
     position: relative;
-    width: 25%;
-    height: 25%;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
  }
-div.img:hover {
+ .img-t{
+    float: left;
+    position: relative;
+    width: 150px;
+    height: 100%;
+    margin-right: 2px;
+    margin-left: 2px;
+    padding: 1px;
+ }
+div.img:hover,.img-t:hover {
     border: 1px solid #777;
 }
-div.img img {
+div.img  img {
     width: 100%;
     height: 100%;
     display: inherit; 
 }
-h1{
-	text-align: right;
-	font-family: "Times New Roman";
-	font-size: 14pt;
-	color: #ffffff;
-	margin: 3%;
-}
-h{
-	font-size: 30pt;
-	font-style: bold;
-	color: #ffffff;
-	margin-left: 4%;
-	margin-bottom: 5%;
-}
-hr{
-	height: 2px;
-	color: #F7C331;
-}
-p{
-	font-family: "Calibri";
-	font-size: 12pt;
-	text-align: left;
-	position: absolute;
-	color: #ffffff;
-	width: 30%;
-	margin: 1%;
-}
+
