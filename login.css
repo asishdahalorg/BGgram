@@ -2,7 +2,8 @@ body{
 	background: #687A8F;
 	margin:auto;
 }
-.header{
+/*Dont need this using the template so there is no repeating*/
+/*.header{
 	display: inline-block;
 	background: #fff;
 	position: fixed;
@@ -10,8 +11,8 @@ body{
     top: 0;
     width: 100%;
     height: 60px;
-}
-.logo{
+}*/
+/*.logo{
 	display: inside;
 	float: left;
 	padding:.5%;
@@ -23,16 +24,16 @@ body{
 	float: right;
 	margin-right:3px;
 	font-family: "Helvetica";
-}
-li {
+}*/
+/*li {
 	list-style: none;
 	float: left;
 	padding-top: 10px;
 	padding: 10px;
-}
-a {
+}*/
+/*a {
 	text-decoration: none;
-}
+}*/
 .container{
 	background: #f9f9f8;
 	text-align:center;
@@ -59,5 +60,5 @@ input{
 	padding:30px;
 	display: inline-block;
 }
-.footer{
-}
+/*.footer{
+}*/
