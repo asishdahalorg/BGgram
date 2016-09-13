@@ -25,23 +25,30 @@ body{
     counter-increment: bc;
     padding: 0px 5px 5px 5px;
 	box-shadow: 2px 2px 2px 2px #D3D3D3;
+	display: inline-block;
 }
-.hazard_sign{
+
+.hazard_sign {
+	width=100%;
 }
-.hazard_message{
-	font: 400 40px/1.2 'Merienda One', Helvetica, sans-serif;
-	color: rgba(0,0,0,0.7);
-	text-shadow: 3px 3px 3px #fff;
+.hazard_sign img{
+	margin-right: 0px;
+	margin-left: 0px;
+	margin: auto;
+	width: 75%;
+    height: 85%;
+    display: inherit; 
 }
+
 .hazard_lever{
     background-color: #B2B2B2; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 1% 2%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: auto;
 	border-radius:4px;
 	box-shadow: 1px 1px 1px 1px #808080;
 }
