@@ -28,5 +28,8 @@ input{
 	padding:30px;
 	display: inline-block;
 }
+.login p{
+	color: #9999ff;
+}
 /*.footer{
 }*/
