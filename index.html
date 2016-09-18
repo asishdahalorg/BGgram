@@ -3,6 +3,8 @@
 		<title>BGgram|Home</title>
 		<link href="css/header_template.css" type="text/css" rel="stylesheet">
 		<link href="css/index.css" type="text/css" rel="stylesheet">
+		<script src="jquery.min.js"></script>
+		<script src="carousel_js.js"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -15,7 +17,7 @@
 						<li><a href="index.html">Home</a></li>
 						<li><a href="html/catalog.html">Catalog</a></li>
 						<li><a href="html/under_construction.html">Editor</a></li>
-						<li><a href="html/under_construction.html">About us</a></li>
+						<li><a href="html/AboutUs.html">About us</a></li>
 						<li><a href="html/login.html">Login/Register</a></li>
 					</ul>
 				</div>
@@ -23,42 +25,50 @@
 		</div>
 	<div class="container">
 		<div class="photoContainer">
-			<div class="img">
-				<img src="images/home_background1080.jpg" alt="Photo" >
+			<div id="carousel" class="carousel" data-ride="carousel">
+				  <div class="img">
+				  	<p class = "info">Welcome to BGgram, where you can edit photos <br/>to create your own backgrounds.</p>
+						 <div class = "buttons">  
+							  <button class="left">
+								  <
+							  </button>
+							  <button class="right">
+							  	  >
+						 	  </button>
+						 </div>
+					  <div class="slideShow" role="listbox">
+					  </div>
+				 </div>
 			</div>
+
+			<!-- <div class="img">
+				<img src="images/home_background1080.jpg" alt="Photo" >
+			</div>s
 			<div class="info">			
 				Welcome to BGgram background editor where you can upload or choose any image or gif and change it to your taste. Images can be use as a background for any devise or they can be share to your friends so they can use it or even make additional changes.
-	   		</div>
+	   		</div> -->
 		</div>
 		<div class="thumbnails">
-			<div class= "thumbnailsSingle"style="display:inline-flex;">
-				<div class="img-t">
-					<img src="images/home1.jpg" alt="Photo" width="150" height="60">
+			<div class= "thumbnailsSingle" style="display:inline-flex;">
+	<!-- 			<div class="img-t">
+
+				</div>
+				<div class="img-t">					
 				</div>
 				<div class="img-t">
-					<img src="images/home2.jpg" alt="Photo" width="150" height="60">
 				</div>
 				<div class="img-t">
-					<img src="images/home3.jpg" alt="Photo" width="150" height="60">
 				</div>
 				<div class="img-t">
-					<img src="images/home4.jpg" alt="Photo" width="150" height="60">
 				</div>
 				<div class="img-t">
-					<img src="images/home5.jpg" alt="Photo" width="150" height="60">
 				</div>
 				<div class="img-t">
-					<img src="images/home6.jpg" alt="Photo" width="150" height="60">
 				</div>
 				<div class="img-t">
-					<img src="images/home7.jpg" alt="Photo" width="150" height="60">
 				</div>
 				<div class="img-t">
-					<img src="images/home8.jpg" alt="Photo" width="150" height="60">
-				</div>
-				<div class="img-t">
-					<img src="images/home9.jpg" alt="Photo" width="150" height="60">
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

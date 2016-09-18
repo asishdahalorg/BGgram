@@ -1,12 +1,14 @@
 body{
 	margin:auto;
-	font-size: 17px;
+	font-size: 25px;
 	font-family: Helvetica;
 }
+
 /*Contains everything but header*/
 .container{
 	background: #f9f9f8;
 	text-align:center;
+	position: relative;
 }
 /*Applying Different Selector*/
 /*These containes the big photo and the samll one under it*/
@@ -14,14 +16,16 @@ body{
 	background: #fff;
 	border-radius: 7px;
 	box-shadow: 1px 1px 1px #D8D8D8;
-	margin-top:25px;
-	padding:10px;
+	margin-top: 1px;
+	padding: 10px;
 	display: inline-block;
-	width: 70%;
+	width: 85%;
 	position: relative;
+	height: 74%;
 }
 .thumbnails{
 	margin: 2px;
+	height: 9%;
 }
 .thumbnailsSingle{
 	overflow-y: hidden;
@@ -30,19 +34,17 @@ body{
 }
 /*This containge the writen information presented to user*/
 .info{
-	color:#4e4e4e;
-	position:absolute;
+	color: #fffdfd;
+	position: absolute;
 	z-index: 100;
-	text-align: justify;
-	background: rgba(255,255,255,.5);
-	margin-top: 20%;
+	text-align: center;
+	background: rgba(41, 38, 38, 0.31);
+	top: 28%;
 	font-size: 100%;
 	overflow: auto;
-	height: 80px;
-	padding-top:1%;
-	padding-bottom:1%;
-	padding-left: 20%;
-	padding-right: 20%;
+	height: 20%;
+	width: 100%;
+	padding-top: 62px;
 }
 /*Big image*/
 .img{
@@ -50,13 +52,18 @@ body{
     position: relative;
     width: 100%;
     opacity: 0.8;
+    height: 100%;
  }
  /*Small images*/
  .img-t{
     float: left;
     position: relative;
-    width: 100%;
     padding: 1px;
+    width: 150px;
+    height: 60px;
+ }
+ .img-t img{
+    width:100%;
  }
  /*Applying Different Selector*/
  /*When hovergin over an image, it changes opacity*/
@@ -64,9 +71,57 @@ div.img-t:hover {
     margin: 0px;
     opacity:.7;
 }
+
 /*Applying Different Selector*/
 div.img  img {
     width: 100%;
     display: inherit; 
 }
+.slideShow div.item{
+	display: none;
+	overflow: hidden;
+	height: 100%;
+}
+.thumbnailsSingle div.item{
+	overflow: hidden;
+	height: 100px;
+}
+.slideShow div.active{
+	display: block;
+}
+.thumbnailsSingle div.active{
+	display: block;
+	opacity: .5;
+}
+.buttons{
+	position: absolute;z-index: 1000;
+	width: 100%;
+	height: 100%;
+}
+.right, .left{
+	top: 0;
+	opacity: 0.05;
+	border-radius: 6px;
+	position: relative;
+	position: absolute;
+	width: 10%;
+	height: 100%;
+	border: 0px;
+	border-radius: 0px;
+	font-size: 35px;
+	font-weight: bold;
+	background: rgba(0, 0, 0, 0.75);
+	color: #d7d2d2;
+}
+.right{
+	right: 0;
+}
+.left{
+	left: 0;
+}
+.right:hover, .left:hover
+{
+	opacity: .6;
+} 
+
 
