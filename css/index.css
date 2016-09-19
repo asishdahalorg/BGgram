@@ -1,17 +1,17 @@
 body{
 	margin:auto;
-	font-size: 25px;
 	font-family: Helvetica;
 }
-
 /*Contains everything but header*/
 .container{
 	background: #f9f9f8;
 	text-align:center;
 	position: relative;
 }
-/*Applying Different Selector*/
-/*These containes the big photo and the samll one under it*/
+/*Applying Different Selector.
+  These contains the slide show photo 
+  container and the thumbnails photo 
+  containers*/
 .photoContainer,.thumbnails{
 	background: #fff;
 	border-radius: 7px;
@@ -32,7 +32,7 @@ body{
 	overflow-x: auto;
 	width: 100%;
 }
-/*This containge the writen information presented to user*/
+/*This contains the written information presented to user*/
 .info{
 	color: #fffdfd;
 	position: absolute;
@@ -72,32 +72,37 @@ div.img-t:hover {
     opacity:.7;
 }
 
-/*Applying Different Selector*/
 div.img  img {
     width: 100%;
     display: inherit; 
 }
+/*Big photo slideshow*/
 .slideShow div.item{
 	display: none;
 	overflow: hidden;
 	height: 100%;
 }
+/*Small photos thumbnails items*/
 .thumbnailsSingle div.item{
 	overflow: hidden;
 	height: 100px;
 }
+/*Slide show when has class active*/
 .slideShow div.active{
 	display: block;
 }
+/*Thumbnails when has class active*/
 .thumbnailsSingle div.active{
 	display: block;
 	opacity: .5;
 }
+/*Left/Right buttons container*/
 .buttons{
 	position: absolute;z-index: 1000;
 	width: 100%;
 	height: 100%;
 }
+/*Left/Right buttons*/
 .right, .left{
 	top: 0;
 	opacity: 0.05;
@@ -119,8 +124,8 @@ div.img  img {
 .left{
 	left: 0;
 }
-.right:hover, .left:hover
-{
+/*When hovering over Left/Right buttons*/
+.right:hover, .left:hover{
 	opacity: .6;
 } 
 

@@ -1,5 +1,60 @@
 .container{
 	background: #f9f9f8;
-	text-align:center;
 	position: relative;
+	padding-top: 20px;
+	padding-left: 4px;
+	width:100%;height:100%;
+}
+/*For both gib containers*/
+.infoContainer, .leftMenu{
+	background: #fff;
+	border-radius: 7px;
+	box-shadow: 1px 1px 1px #D8D8D8;
+  	color: #999691;
+	display: inline-block;
+	position: relative;
+	overflow: auto;
+	height: 79%;
+	border: .1px solid #999691;;
+	padding-top: 19px;
+}
+/*For information written inside container*/
+.infoContainer{
+	width: 97%;
+}
+/*For menu*/
+.leftMenu{
+	width:90%;
+	position: relative;
+	padding-top: 5px;
+	padding-top: 10%;
+}
+/*For menu and links*/
+.leftMenu a{
+	width: 100%;
+	line-height: 100%;
+	padding: 5px;
+	vertical-align: middle;
+	text-align: center;
+	display: block;
+}
+/*Outside box of information on page*/
+.outsideInfo{
+	position: relative;
+	float: left;
+	width:84%;
+}
+/*Another contain for the information*/
+.infoContainer div {
+	width: 81%;
+	text-align: justify;
+	display: block;
+	padding-left: 7%;
+	padding-top: 25px;
+}
+/*Outside box of menu*/
+.outsideMenu{
+	position: relative;
+ 	float: left;
+ 	width:15%;
 }
