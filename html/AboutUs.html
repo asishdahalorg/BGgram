@@ -1,19 +1,42 @@
 <html>
 	<head>
 		<title>BGgram|About Us</title>
-		<link href="../css/AboutUs.css" type="text/css" rel="stylesheet">
-		<!-- added the reference of the template so we only have to change one -->
 		<link href="../css/header_template.css" type="text/css" rel="stylesheet">
+		<link href="../css/AboutUs.css" type="text/css" rel="stylesheet">
+		<script src="../jquery.min.js"></script>
+		<script>
+		// script to use DOM history manipulation on the about us page. 
+           $(function(){   
+            //This moves around the menu links. 
+           	$(".leftMenu a").click(function(){
+           		var target = $(this).attr("data-class");
+           		//Adding to history
+           		history.pushState({"dataClass":target},"");
+           		$(".infoContainer").hide();
+           		$(target).show();
+           	});
+           	//This moves using history (back and forward buttons).
+           	$(window).on('popstate', function() {
+		      if(history.state!=null){
+           		$(".infoContainer").hide();
+		        $(history.state.dataClass).show();
+		      }
+		    });
+		    // Adding to history first page on about us (About Us)
+            history.pushState({"dataClass":".about"},"");
+           });
+		</script>
 	</head>
 	<body>
 		<div class="header">
 			<div class="logo">
-				<!-- Added logo -->
+				<!-- Logo -->
 				<img src="../bggram_logo/BGgramIcon.png" alt="Logo" width="80" height="60">
 			</div>
 			<div class="navheader">
 				<div class="navbar">
 					<ul>
+						<!-- Header links -->
 						<li><a href="../index.html">Home</a></li>
 						<li><a href="catalog.html">Catalog</a></li>
 						<li><a href="under_construction.html">Editor</a></li>
@@ -24,8 +47,26 @@
 			</div>
 		</div>
 		<div class="container">
-			
-		
+			<div class ="outsideMenu">
+				<div class="leftMenu">
+					<!-- Menu links -->
+					<a href="javascript://" data-class=".about">About Us</a>
+					<a href="javascript://" data-class=".mission">Mission</a>
+					<a href="javascript://" data-class=".copyRights">Copy Rights</a>
+				</div>
+			</div>
+			<div class ="outsideInfo">
+				<!-- Each menu page -->
+				<div class="infoContainer about" style="display:block">
+					<div>Welcome to BGgram background editor where you can upload or choose any image or gif and change it to your taste. Images can be use as a background for any devise or they can be share to your friends so they can use it or even make additional changes.</div>
+				</div>
+				<div class="infoContainer mission" style="display:none;">
+					<div>Mission<br/>Our mission is to....</div>
+				</div>
+				<div class="infoContainer copyRights" style="display:none;">
+					<div>Copy Rights<br/>Our Copy Rights are ...</div>
+				</div>
+			</div>
 		</div>
 		<div class="footer">
 		</div>

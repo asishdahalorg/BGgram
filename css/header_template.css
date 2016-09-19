@@ -1,5 +1,7 @@
 body{
 	margin:auto;
+	font-size: 25px;
+	font-family: Helvetica;
 }
 .header{
 	display: inline-block;
