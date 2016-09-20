@@ -5,7 +5,8 @@
 		<link href="../css/AboutUs.css" type="text/css" rel="stylesheet">
 		<script src="../jquery.min.js"></script>
 		<script>
-		// script to use DOM history manipulation on the about us page. 
+			"use strict";
+			// Script to use DOM history manipulation on the about us page. 
            $(function(){   
             //This moves around the menu links. 
            	$(".leftMenu a").click(function(){
@@ -15,14 +16,14 @@
            		$(".infoContainer").hide();
            		$(target).show();
            	});
-           	//This moves using history (back and forward buttons).
+           	//This moves using history (back and forward browser buttons).
            	$(window).on('popstate', function() {
 		      if(history.state!=null){
            		$(".infoContainer").hide();
 		        $(history.state.dataClass).show();
 		      }
 		    });
-		    // Adding to history first page on about us (About Us)
+		    //Adding to history first page on about us (About Us)
             history.pushState({"dataClass":".about"},"");
            });
 		</script>

@@ -1,4 +1,5 @@
 
+"use strict";
 var dataArray = [{"src":"images/home1.jpg","alt":"photo1"},
 				 {"src":"images/home2.jpg","alt":"photo2"},
 				 {"src":"images/home3.jpg","alt":"photo3"},
@@ -21,7 +22,7 @@ $(function(){
 		var newThumbnails = thumbPhotos.replace("#src",dataArray[i].src).replace("#alt",dataArray[i].alt).replace("#data-photo#",i);
 		$(".thumbnails .thumbnailsSingle").append(newThumbnails);
 	}
-	// Adding class active to virst photo on slide show.
+	// Adding class active to first photo on slide show.
 	$(".slideShow div:first").addClass("active");
 	$(".thumbnailsSingle div:first").addClass("active");
 
