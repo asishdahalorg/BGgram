@@ -1,118 +1,60 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>BGgram|Catalog</title>
-		<link href="../css/header_template.css" type="text/css" rel="stylesheet">
-		<link href="../css/catalog.css" type="text/css" rel="stylesheet">
-	</head>
-	<body>
-		<div class="header">
-			<div class="logo">
-				<img src="../bggram_logo/BGgramIcon.png" alt="Logo" width="80" height="60">
-			</div>
-			<div class="navheader">
-				<div class="navbar">
-					<ul>
-						<li><a href="../index.html">Home</a></li>
-						<li><a href="catalog.html">Catalog</a></li>
-						<li><a href="under_construction.html">Editor</a></li>
-						<li><a href="AboutUs.html">About us</a></li>
-						<li><a href="login.html">Login/Register</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class = "searchContainer">
-				<form class="search">
-					<p>						 	<!-- only allows input 'Most Liked' to apply regex -->
-						<input class="input" type="text" name="search" pattern="trending" value = "" placeholder="Search.. "/>
-					</p>
-				</form>
-			</div>
-			<div class="photoContainer">
-				<table class="table">
-					<tr>
-						<td>
-						    <div class="img">
-					            <img src="../images/catalog1.jpg" alt="Photo1">
-					            <div class="ts">Image Description</div>
-					        </div>
-					    </td>
-					    <td>
-					        <div class="img">
-					            <img src="../images/catalog2.jpg" alt="Photo2">
-					            <div class="ts">Image Description</div>
-					    	</div>
-				    	</td>
-				    	<td>
-					        <div class="img">
-					            <img src="../images/catalog3.jpg" alt="Photo3">
-					            <div class="ts">Image Description</div>
-					        </div>
-					    </td>
-					    <td>
-				         	<div  class="img">
-				           	 	<img src="../images/catalog4.jpg" alt="Photo4">
-				           	 	<div class="ts">Image Description</div>
-				        	</div>
-			        	</td>
-			        </tr>
-			        <tr>	
-			        	<td>
-				        	<div  class="img">
-				            	<img src="../images/catalog5.jpg" alt="Photo5">
-				            	<div class="ts">Image Description</div>
-				         	</div>
-			         	</td>
-			         	<td>
-				         	<div  class="img">
-				            	<img src="../images/catalog6.jpg" alt="Photo6">
-				            	<div class="ts">Image Description</div>
-				        	</div>
-			        	</td>
-			        	<td>
-					        <div  class="img">
-					          	<img src="../images/catalog7.jpg" alt="Photo7">
-					          	<div class="ts">Image Description</div>
-					        </div>
-				        </td>
-				        <td>
-					        <div  class="img">
-					            <img src="../images/catalog8.jpg" alt="Photo8" >
-					            <div class="ts">Image Description</div>
-					        </div>
-				        </td>
-				    </tr>
-				     <tr>
-						<td>
-						    <div class="img">
-					            <img src="../images/catalog9.jpg" alt="Photo9">
-					            <div class="ts">Image Description</div>
-					        </div>
-					    </td>
-					    <td>
-						    <div class="img">
-					            <img src="../images/catalog10.jpg" alt="Photo10">
-					            <div class="ts">Image Description</div>
-					        </div>
-					    </td> 
-					    <td>
-						    <div class="img">
-					            <img src="../images/catalog11.jpg" alt="Photo11">
-					            <div class="ts">Image Description</div>
-					        </div>
-					    </td> 
-					    <td>
-						    <div class="img">
-					            <img src="../images/catalog12.jpg" alt="Photo12">
-					            <div class="ts">Image Description</div>
-					        </div>
-					    </td> 
-		    		</tr>	
-		    	</table>
-		    </div>
-		</div>
-	<div class="footer"></div>
-	</body>
+<html lang="en">
+<head>
+    <title>BGgram | Catalog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/searchbutton.css">
+    <link rel="stylesheet" href="../css/catalog.css">
+    <link rel="stylesheet" href="../css/header_template.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../scripts/catalog.js"></script>
+
+</head>
+
+<body>
+	<!--This is our header template that we have used for every page so far.
+	It will be refactored soon to use bootstrap-->
+    <div class="header" id="head">
+        <div class="logo">
+            <img src="../bggram_logo/BGgramIcon.png" alt="Logo" width="80" height="60">
+        </div>
+        <div class="navheader">
+            <div class="navbar">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="catalog.html">Catalog</a></li>
+                    <li><a href="under_construction.html">Editor</a></li>
+                    <li><a href="under_construction.html">About us</a></li>
+                    <li><a href="login.html">Login/Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<!-- A fancy bootstrap search bar. The main action is where the button is. The onclick event
+	triggers the flickr() function-->
+    <div class="container-fluid search">
+        <div class = "row">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pull-right">
+                <form id='form1' class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" id="search_bar" class="form-control" placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default searchbtn" onclick="flickr()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+	<!-- An entirely unpopulated image gallery-->
+	<!-- It will be generated by the button-->
+    <div class="container-fluid gallery">
+        <div class="row" id="galleryrow" data-index="1">
+        </div>
+    </div>
+</body>
 </html>
