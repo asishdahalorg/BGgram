@@ -14,7 +14,7 @@ Currently used API:
 * Flickr
 
 You may access the site from:
-* `https://bluedrag.github.io/BGgram/`
+* https://bluedrag.github.io/BGgram/
 
 The github repository is located at
 * https://github.com/bluedrag/BGgram
