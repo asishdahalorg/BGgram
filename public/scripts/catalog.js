@@ -1,5 +1,19 @@
 "use strict";
-$(document).ready();
+$(document).ready(function(){
+
+   // var firebase = require("firebase");
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyChi7CPreml7IQNQ5H42gfbybfs6538bY4",
+    authDomain: "bggram-d9ba0.firebaseapp.com",
+    databaseURL: "https://bggram-d9ba0.firebaseio.com",
+    storageBucket: "bggram-d9ba0.appspot.com",
+    messagingSenderId: "50803099095"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database().ref("bggram-d9ba0");
+
 //The top 2 lines make sure that syntax is strictly controlled
 //and that all elements are ready to be used before the script begins
 
@@ -61,3 +75,8 @@ function flickr() {
 }
 
 flickr();
+
+});
+
+
+
