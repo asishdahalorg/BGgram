@@ -3,7 +3,7 @@ body{
 	font-family: Helvetica;
 }
 /*Contains everything but header*/
-.container{
+.container1{
 	background: #f9f9f8;
 	text-align:center;
 	position: relative;
@@ -25,7 +25,7 @@ body{
 }
 .thumbnails{
 	margin: 2px;
-	height: 9%;
+	height: auto;
 }
 .thumbnailsSingle{
 	overflow-y: hidden;
@@ -37,14 +37,16 @@ body{
 	color: #fffdfd;
 	position: absolute;
 	z-index: 100;
-	text-align: center;
 	background: rgba(41, 38, 38, 0.31);
-	top: 28%;
 	font-size: 100%;
 	overflow: auto;
-	height: 20%;
 	width: 100%;
-	padding-top: 62px;
+	height:20%;
+	top:40%;
+}
+
+.infotext{
+	padding-top:3%;
 }
 /*Big image*/
 .img{
