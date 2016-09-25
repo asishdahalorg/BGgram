@@ -64,7 +64,7 @@ $(function()
         var storageRef = storage.ref();
         function uploadPhoto()
         {
-            var photo = $(".choose")[0].files[0];
+            var photo = $(".fileInput")[0].files[0];
             var storageRef = storage.ref("Photo/"+user.uid);
             var imagesRef = storageRef.child(photo.name);
             updatePhotoArray(photo.name);
