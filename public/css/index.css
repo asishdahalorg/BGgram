@@ -1,132 +1,113 @@
-body{
-	margin:auto;
-	font-family: Helvetica;
+
+body {
+    font-family: Helvetica;
+    margin: auto;
 }
-/*Contains everything but header*/
-.container{
-	background: #f9f9f8;
-	text-align:center;
-	position: relative;
+.container1 {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    position: relative;
+    text-align: center;
 }
-/*Applying Different Selector.
-  These contains the slide show photo 
-  container and the thumbnails photo 
-  containers*/
-.photoContainer,.thumbnails{
-	background: #fff;
-	border-radius: 7px;
-	box-shadow: 1px 1px 1px #D8D8D8;
-	margin-top: 1px;
-	padding: 10px;
-	display: inline-block;
-	width: 85%;
-	position: relative;
-	height: 74%;
-}
-.thumbnails{
-	margin: 2px;
-	height: 9%;
-}
-.thumbnailsSingle{
-	overflow-y: hidden;
-	overflow-x: auto;
-	width: 100%;
-}
-/*This contains the written information presented to user*/
-.info{
-	color: #fffdfd;
-	position: absolute;
-	z-index: 100;
-	text-align: center;
-	background: rgba(41, 38, 38, 0.31);
-	top: 28%;
-	font-size: 100%;
-	overflow: auto;
-	height: 20%;
-	width: 100%;
-	padding-top: 62px;
-}
-/*Big image*/
-.img{
-    float: left;
+.photoContainer, .thumbnails {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px #d8d8d8;
+    display: inline-block;
+    height: 74%;
+    margin-top: 1px;
+    padding: 10px;
     position: relative;
     width: 100%;
-    opacity: 0.8;
+}
+.thumbnails {
+    height: auto;
+    margin: 2px;
+}
+.thumbnailsSingle {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+.info {
+    background: rgba(41, 38, 38, 0.31) none repeat scroll 0 0;
+    color: #fffdfd;
+    font-size: 24px;
+    height: 40%;
+    overflow: auto;
+    position: absolute;
+    top: 32%;
+    width: 100%;
+    z-index: 100;
+}
+.infotext {
+    padding-top: 3%;
+}
+.img {
+    float: left;
     height: 100%;
- }
- /*Small images*/
- .img-t{
-    float: left;
+    opacity: 0.8;
     position: relative;
-    padding: 1px;
-    width: 150px;
-    height: 60px;
- }
- .img-t img{
-    width:100%;
- }
- /*Applying Different Selector*/
- /*When hovergin over an image, it changes opacity*/
-div.img-t:hover {
-    margin: 0px;
-    opacity:.7;
-}
-
-div.img  img {
     width: 100%;
-    display: inherit; 
 }
-/*Big photo slideshow*/
-.slideShow div.item{
-	display: none;
-	overflow: hidden;
-	height: 100%;
+.img-t {
+    float: left;
+    height: 60px;
+    padding: 1px;
+    position: relative;
+    width: 150px;
 }
-/*Small photos thumbnails items*/
-.thumbnailsSingle div.item{
-	overflow: hidden;
-	height: 100px;
+.img-t img {
+    width: 100%;
 }
-/*Slide show when has class active*/
-.slideShow div.active{
-	display: block;
+div.img-t:hover {
+    margin: 0;
+    opacity: 0.7;
 }
-/*Thumbnails when has class active*/
-.thumbnailsSingle div.active{
-	display: block;
-	opacity: .5;
+div.img img {
+    display: inherit;
+    width: 100%;
 }
-/*Left/Right buttons container*/
-.buttons{
-	position: absolute;z-index: 1000;
-	width: 100%;
-	height: 100%;
+.slideShow div.item {
+    display: none;
+    height: 100%;
+    overflow: hidden;
 }
-/*Left/Right buttons*/
-.right, .left{
-	top: 0;
-	opacity: 0.05;
-	border-radius: 6px;
-	position: relative;
-	position: absolute;
-	width: 10%;
-	height: 100%;
-	border: 0px;
-	border-radius: 0px;
-	font-size: 35px;
-	font-weight: bold;
-	background: rgba(0, 0, 0, 0.75);
-	color: #d7d2d2;
+.thumbnailsSingle div.item {
+    height: 100px;
+    overflow: hidden;
 }
-.right{
-	right: 0;
+.slideShow div.active {
+    display: block;
 }
-.left{
-	left: 0;
+.thumbnailsSingle div.active {
+    display: block;
+    opacity: 0.5;
 }
-/*When hovering over Left/Right buttons*/
-.right:hover, .left:hover{
-	opacity: .6;
-} 
-
-
+.buttons {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+.right, .left {
+    background: rgba(0, 0, 0, 0.75) none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0;
+    color: #d7d2d2;
+    font-size: 35px;
+    font-weight: bold;
+    height: 100%;
+    opacity: 0.05;
+    position: absolute;
+    top: 0;
+    width: 10%;
+}
+.right {
+    right: 0;
+}
+.left {
+    left: 0;
+}
+.right:hover, .left:hover {
+    opacity: 0.6;
+}

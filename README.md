@@ -10,6 +10,9 @@ All css files are in /css
 All used script files are in /script 
 All local images are in /images
 
+Current placeholder images were obtained on:
+* https://unsplash.it/
+
 Currently used API:
 * Flickr
 

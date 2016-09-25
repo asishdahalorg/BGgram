@@ -88,7 +88,7 @@ $(function()
                     // $link_to_image.append($thumbnail_of_image,$image_title);
                     // $column.append($link_to_image).appendTo("#galleryrow");
                     console.log(url);
-                    var im = "<div class=\"col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb\">"+
+                    var im = "<div id='photoDiv' class=\"col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb\">"+
                                 "<a class='thumbnail imglink'><img class='img-thumbnail img-responsive img-rounded page_image' src='"+url+"'/></a>"+
                              "</div>";
                     $("#galleryrow").append(im);
@@ -125,56 +125,20 @@ $(function()
         }
         waitToLoadPhoto();
         
-    //The top 2 lines make sure that syntax is strictly controlled
-    //and that all elements are ready to be used before the script begins
-    //A function to insert one single tile of image
-        function insert_img_thumbnail_into_gallery(i,link,title) 
-        {
-            //this makes it easier to see how the structure is being created
-            var $column = $('<div></div>').attr("class","col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb");
-            var $link_to_image = $("<a></a>").attr("class","thumbnail imglink" +i).attr("href",link);
-            var $thumbnail_of_image = $("<img/>").attr("class","img-thumbnail img-responsive img-rounded page_image").attr("src",link);
-            var $image_title = $("<div></div>").attr("class","ts").text(title);
+   //  //The top 2 lines make sure that syntax is strictly controlled
+   //  //and that all elements are ready to be used before the script begins
+   //  //A function to insert one single tile of image
+   //      function insert_img_thumbnail_into_gallery(i,link,title) 
+   //      {
+   //          //this makes it easier to see how the structure is being created
+   //          var $column = $('<div></div>').attr("class","col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb");
+   //          var $link_to_image = $("<a></a>").attr("class","thumbnail imglink" +i).attr("href",link);
+   //          var $thumbnail_of_image = $("<img/>").attr("class","img-thumbnail img-responsive img-rounded page_image").attr("src",link);
+   //          var $image_title = $("<div></div>").attr("class","ts").text(title);
 
-            //the main coloumn is appended into the row
-            $link_to_image.append($thumbnail_of_image,$image_title);
-            $column.append($link_to_image).appendTo("#galleryrow");
-        }
+   //          //the main coloumn is appended into the row
+   //          $link_to_image.append($thumbnail_of_image,$image_title);
+   //          $column.append($link_to_image).appendTo("#galleryrow");
+   //      }
    }
 });
-
-
-
-
-// var arr = new Set();
-// $(function(){
-//    
-// // function flickr() {
-// //     //redundant? check to make sure elements are all set
-// //     $(document).ready();
-// //     $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-// //         {   //I tried to implement a search functionality by
-// //             //accessing $("#search_bar).val() which is the input value from catalog page.
-// //             //however, the tag does not seem to like this, or rather, it does not evaluate the string
-// //             //before being parsed.
-// //             //The good news is, leaving tags blank acts as sort of a dice roll so clicking search will
-// //             //still cause dynamic change
-// //             tags: "",
-// //             tagmode: "any",
-// //             format: "json"
-// //         }, function (data){
-// //             //a jquery forloop over data returned by flickr
-// //             $.each(data.items,function (i,item){
-// //                 //for each image, insert a set of elements
-// //                 insert_img_thumbnail_into_gallery(i,item.media.m,item.title)
-// //             });
-
-// //         });
-// // }
-
-// // flickr();
-
-// });
-
-
-

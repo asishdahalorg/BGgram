@@ -1,90 +1,113 @@
-/*this is the stylesheet for catalog.css*/
-body{
-    background-color: #D8D8D8;
+
+body {
+    background-color: #d8d8d8;
 }
-.gallery{
-    margin-left:5%;
-    margin-right: 5%;
-    background-color: #EEEEEE;
+.gallery {
+    background-color: #eeeeee;
     border-radius: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
-.row{
+.row {
     margin-top: 1%;
 }
-/* this is the 'a' bootstrap class which helps create thumbnails, I added some custom styles*/
-.thumbnail{
-    border: none;
+.thumbnail {
     background-color: inherit;
-    width: 100%;
-    height: 100%;
+    border: medium none;
     display: inline-block;
-}
-/*image will take up entire space*/
-.thumbnail img{
+    height: 100%;
     width: 100%;
-    height:95%;
 }
-/*hardcoded limit to height. I think thats for the best, although I will implement a range of height soon*/
-.thumb{
+.thumbnail img {
+    height: 95%;
+    width: 100%;
+}
+.thumb {
     height: 400px;
 }
-.page_image{
+.page_image {
     display: inline-block;
+    margin-bottom: 0;
+    margin-top: auto;
     width: 100%;
-    margin-top:auto;
-    margin-bottom:0;
 }
-/*Image title behavior*/
-.ts{
-    text-align: center;
+.ts {
+    border: 1px none;
     font-size: 17px;
-    text-overflow: ellipsis;
     overflow: hidden;
-    border: 1px;
-    white-space:nowrap;
-
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-.ts:hover{
-    height: 100px;
+.ts:hover {
     font-size: 170px;
-    opacity:.7;
+    height: 100px;
+    opacity: 0.7;
 }
-/*Applying Selector and transition and pseudo classe*/
-.galleryrow .thumb:hover .thumbnail:hover .img:hover .ts{
-    height:100px;
-    opacity:.7;
+.galleryrow .thumb:hover .thumbnail:hover .img:hover .ts {
+    height: 100px;
+    opacity: 0.7;
 }
 div.img:hover {
-    text-anchor: top;
-    height:100px;
+    height: 100px;
     margin: 0;
-    opacity:.7;
+    opacity: 0.7;
 }
-.input-group{
-
-    margin-left: 40px;
-    margin-right: 0;
-    width: 50%;
+.input-group {
     display: inline-table;
-    vertical-align: middle;
-    position: relative;
     float: left;
+    margin-right: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
 }
 .input-group-btn {
-    width: 0 !IMPORTANT;
+    width: 0 !important;
 }
-.choose .upload{
-    background: #EEEEEE;
-    color: #968F8F;
-    position: relative;
+.choose .upload {
+    background: #eeeeee none repeat scroll 0 0;
+    color: #968f8f;
     float: left;
- }
-.choose{
-    display: inline-flex !IMPORTANT;
-    width: 21%;
- }
- button, input {
-    border-radius: 4px;
-    border: 1px solid white;
+    position: relative;
 }
-
+.choose {
+    display: inline-flex !important;
+    width: 21%;
+}
+button, input {
+    border: 1px solid white;
+    border-radius: 4px;
+}
+.thumb img {
+    height: 100% !important;
+    padding: 0 !important;
+    width: 100%;
+}
+#photoDiv {
+    margin-bottom: 15px;
+    padding: 6px;
+    width: 25%;
+}
+#bigCont {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+.upload, .fileInput {
+    background: #eeeeee none repeat scroll 0 0;
+    border-radius: 4px;
+    display: inline !important;
+    height: 34px;
+    width: 202px;
+    border: .1px solid #c7d3d3;
+    color: #333;
+}
+.upload {
+    width: 100px;
+}
+.container-fluid.search{
+    margin-bottom:10px;
+}
+#sarch{
+    padding-left: 0px;
+}
+#search .input-group{margin: 0px;}
