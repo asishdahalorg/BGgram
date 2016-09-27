@@ -36,13 +36,17 @@ $(function () {
         $.getJSON(URL, function (data) {
             if (parseInt(data.totalHits) > 0) {
                 $.each(data.hits, function (i, hit) {
+                    var pixlrcommand = "\"javascript:pixlr.overlay.show({image:'"+ data.hits[i].webformatURL+"', title:'"+"image"+data.hits[i].id+"', service:'editor'});\"";
                     var newaddition = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
                         "<div class='thumbnail text-right'>" +
-                        "<img src='" + data.hits[i].webformatURL + "' alt='" + +"'>" +
+                        "<a  href='"+ data.hits[i].webformatURL +"'>" +
+                        "<img class='img-responsive img-thumbnail browseimg' src='" + data.hits[i].previewURL + "'>" +
+                        "</a>" +
                         "<div class='caption'>" +
                         "<p>" +
-                        "<button class='btn btn-primary' role='button'>Edit</button>" +
-                        " <button class='btn btn-default' role='button'>Save</button>" +
+                        "<a href="+pixlrcommand+">"+
+                        "<button class='btn btn-default' role='button'>Edit</button></a>" +
+                        "<button class='btn btn-default' role='button'>Save</button>" +
                         "</p>" +
                         "</div>" +
                         "</div>" +

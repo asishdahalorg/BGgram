@@ -4,9 +4,21 @@ var arr = new Set();
 var loadingComplete  = false;
 $(function()
 {
+    const config = {
+        apiKey: "AIzaSyChi7CPreml7IQNQ5H42gfbybfs6538bY4",
+        authDomain: "bggram-d9ba0.firebaseapp.com",
+        databaseURL: "https://bggram-d9ba0.firebaseio.com/",
+        storageBucket: "bggram-d9ba0.appspot.com",
+        messagingSenderId: "50803099095"
+    };
+    //  initialize app
+    firebase.initializeApp(config);
+
+    var user = firebase.auth().currentUser;
+    console.log(user);
    var waitInterval = setInterval(function()
    {
-        if(initialized)
+        if(user)
         {
             console.log("Initialized:"+initialized);
             clearInterval(waitInterval);
@@ -14,6 +26,7 @@ $(function()
         }
     
    },1000);
+
    function initializePage()
    {
         

@@ -1,9 +1,9 @@
 "use strict";
-  var usersInfo;
-  var initialized =  false;
-  var user;
-  var token;
-
+var usersInfo;
+var initialized =  false;
+var user;
+var token;
+$(function () {
 
     var config ={
         apiKey: "AIzaSyChi7CPreml7IQNQ5H42gfbybfs6538bY4",
@@ -16,9 +16,8 @@
 
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/plus.login');
-    
 
-    firebase.auth().signInWithPopup(provider).then(function(result) 
+    firebase.auth().signInWithPopup(provider).then(function(result)
     {
            initialized = true;
            token = result.credential.accessToken;
@@ -30,3 +29,5 @@
           var email = error.email;
           var credential = error.credential;
     });
+
+});

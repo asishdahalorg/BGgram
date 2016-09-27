@@ -17,12 +17,10 @@ $(function ()
     // provider.addScope('https://www.googleapis.com/auth/plus.login');
     const txtEmail = document.getElementById('useremail');
     const txtpass = document.getElementById('userpass');
-    const registermail = document.getElementById('registeremail');
     const registerpass = document.getElementById('registerpass');
     const registerpass2 = document.getElementById('registerpass2');
     const btnlogin = document.getElementById('userlogin');
     const btnlogoff = document.getElementById('userlogoff');
-    const btnusersignup = document.getElementById('usersignup');
     const loggedinmenu = $('#loggedinmenu');
     const username = $('#username');
     const loggedoutmenu = $('#login-dp');
@@ -47,27 +45,6 @@ $(function ()
 
     });
 
-    // Code segment only used in register.js
-
-    // btnusersignup.addEventListener('click',function () {
-    //     const email = registermail.value;
-    //     const mainpass = registerpass.value;
-    //     const bcpass = registerpass2.value;
-    //     if (mainpass != bcpass){
-    //         $("#invalidpassword").text("Password does not match! Try again.");
-    //     }
-    //     else {
-    //         const promise = firebase.auth().createUserWithEmailAndPassword(email, mainpass);
-    //         promise.then(function() {
-    //             btnlogin.click();
-    //         });
-    //         promise.catch(function (error) {
-    //             console.log(error);
-    //         });
-    //     }
-    //
-    // });
-
     firebase.auth().onAuthStateChanged(function(User) {
         if (User) {
             console.log(User);
@@ -81,7 +58,6 @@ $(function ()
             username.attr('class','dropdown-toggle');
             username.text(User.email);
         } else {
-            console.log('here');
             loggedinmenu.hide();
             username.hide();
             loggedoutmenu.removeAttr('display');

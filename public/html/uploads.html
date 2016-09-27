@@ -6,21 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/searchbutton.css">
-    <link rel="stylesheet" href="../css/catalog.css">
+    <link rel="stylesheet" href="../css/uploads.css">
     <link rel="stylesheet" href="../css/header2.css">
+    <script src="../jquery.min.js"></script>
+    <script src="../scripts/uploads.js"></script>
+    <script src="../scripts/pixlr.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-storage.js"></script>
-    <script src="../jquery.min.js"></script>
-    <script src="../scripts/login.js"></script>
-    <script src="../scripts/login3.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://lipis.github.io/bootstrap-social/bootstrap-social.css" rel="stylesheet">
-    <script src="../scripts/catalog.js"></script>
+    <script type="text/javascript">
+        pixlr.settings.exit = 'http://localhost:5000/html/browse.html';
+        pixlr.settings.method = 'GET';
+        pixlr.settings.redirect = false;
+    </script>
+
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -57,17 +63,16 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><p class="navbar-text" style="display: none;">Already have an account?</p></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Username</b><span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="catalog.html">My Uploads</a></li>
+                    <a href="#" id='username' class="dropdown-toggle" data-toggle="dropdown" ><b>Username</b><span class="caret"></span></a>
+                    <ul id='loggedinmenu' class="dropdown-menu" role="menu">
+                        <li><a href="uploads.html">My Uploads</a></li>
                         <li class="divider"></li>
                         <li>
                             <button type="submit" id="userlogoff" class="btn btn-primary btn-block">Sign Off</button>
                         </li>
                     </ul>
-                    <a href="#" class="dropdown-toggle" id="logininfo" data-toggle="dropdown" ><b>Login</b> <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" id="logininfo" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
                     <ul id="login-dp" class="dropdown-menu" style="padding: 10px; padding-bottom: 5px;">
                         <li>
                             <div class="row">
@@ -95,14 +100,6 @@
 </nav>
         <!-- A fancy bootstrap search bar. The main action is where the button is.-->
     <div class="container-fluid search">
-        <form id='form1' class="navbar-form" role="search">
-            <div class="input-group">
-                <input type="text" id="search_bar" class="form-control" placeholder="Search" name="q">
-                <div class="input-group-btn">
-                    <button class="btn btn-default searchbtn" onclick="flickr()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-            </div>
-        </form>
         <div class="pull-right">
         <input class = "fileInput" type="file" class ="choose">
         <button class = "upload">Upload</button>
