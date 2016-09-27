@@ -88,7 +88,7 @@ $(function()
                     // $link_to_image.append($thumbnail_of_image,$image_title);
                     // $column.append($link_to_image).appendTo("#galleryrow");
                     console.log(url);
-                    var im = "<div id='photoDiv' class=\"col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb\">"+
+                    var im = "<div id='photoDiv' class='col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb'>"+
                                 "<a class='thumbnail imglink'><img class='img-thumbnail img-responsive img-rounded page_image' src='"+url+"'/></a>"+
                              "</div>";
                     $("#galleryrow").append(im);

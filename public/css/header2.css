@@ -49,3 +49,9 @@ body{
         border-top:0 none;
     }
 }
+.searchinput{
+    padding-top: 6px;
+}
+.searchinputsubmit{
+    padding-top: 6px;
+}
