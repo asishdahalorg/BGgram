@@ -1,0 +1,113 @@
+
+body {
+    font-family: Helvetica;
+    margin: auto;
+}
+.container1 {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    position: relative;
+    text-align: center;
+}
+.photoContainer, .thumbnails {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px #d8d8d8;
+    display: inline-block;
+    height: 74%;
+    margin-top: 1px;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.thumbnails {
+    height: auto;
+    margin: 2px;
+}
+.thumbnailsSingle {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+.info {
+    background: rgba(41, 38, 38, 0.31) none repeat scroll 0 0;
+    color: #fffdfd;
+    font-size: 24px;
+    height: 40%;
+    overflow: auto;
+    position: absolute;
+    top: 32%;
+    width: 100%;
+    z-index: 100;
+}
+.infotext {
+    padding-top: 3%;
+}
+.img {
+    float: left;
+    height: 100%;
+    opacity: 0.8;
+    position: relative;
+    width: 100%;
+}
+.img-t {
+    float: left;
+    height: 60px;
+    padding: 1px;
+    position: relative;
+    width: 150px;
+}
+.img-t img {
+    width: 100%;
+}
+div.img-t:hover {
+    margin: 0;
+    opacity: 0.7;
+}
+div.img img {
+    display: inherit;
+    width: 100%;
+}
+.slideShow div.item {
+    display: none;
+    height: 100%;
+    overflow: hidden;
+}
+.thumbnailsSingle div.item {
+    height: 100px;
+    overflow: hidden;
+}
+.slideShow div.active {
+    display: block;
+}
+.thumbnailsSingle div.active {
+    display: block;
+    opacity: 0.5;
+}
+.buttons {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+.right, .left {
+    background: rgba(0, 0, 0, 0.75) none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 0;
+    color: #d7d2d2;
+    font-size: 35px;
+    font-weight: bold;
+    height: 100%;
+    opacity: 0.05;
+    position: absolute;
+    top: 0;
+    width: 10%;
+}
+.right {
+    right: 0;
+}
+.left {
+    left: 0;
+}
+.right:hover, .left:hover {
+    opacity: 0.6;
+}

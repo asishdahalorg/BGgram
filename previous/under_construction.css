@@ -1,0 +1,60 @@
+/*under_construction.html style page*/
+body{
+	background-color: #EEEEEE;
+	margin:auto;
+	font-family: Helvetica;
+}
+.construction_site{
+    width: 60%;
+    height: 85%;
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+	text-align: center;
+    background-color: #fff;
+    border: 10px;
+    border-color: #ffffff;
+    border-style: solid;
+	border-radius: 12px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    counter-increment: bc;
+    padding: 0px 5px 5px 5px;
+	box-shadow: 2px 2px 2px 2px #D3D3D3;
+	display: inline-block;
+}
+
+.hazard_sign {
+	width: 100%;
+}
+.hazard_sign img{
+	margin-right: 0px;
+	margin-left: 0px;
+	margin: auto;
+	width: 75%;
+    height: 85%;
+    display: inherit; 
+}
+
+.hazard_lever{
+    background-color: #B2B2B2; /* Green */
+    border: none;
+    color: white;
+    padding: 1% 2%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	border-radius:4px;
+	box-shadow: 1px 1px 1px 1px #808080;
+}
+.button{
+	color: #fff;
+    text-decoration: none;
+    cursor: auto;
+	font-family:Helvetica;
+	font-size: 18px;
+}
