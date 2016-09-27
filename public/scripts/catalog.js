@@ -1,5 +1,5 @@
 "use strict";
-
+/* DEPECREATED, THIS IS NOT USED CURRENTLY, REFER TO uploads.js*/
 var arr = new Set();
 var loadingComplete  = false;
 $(function()

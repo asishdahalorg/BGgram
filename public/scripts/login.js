@@ -3,6 +3,7 @@
  */
 $(function ()
 {
+    // This is used by most pages to login a user
     const config = {
         apiKey: "AIzaSyChi7CPreml7IQNQ5H42gfbybfs6538bY4",
         authDomain: "bggram-d9ba0.firebaseapp.com",
@@ -45,6 +46,7 @@ $(function ()
 
     });
 
+    // Upon login/logoff, do these things
     firebase.auth().onAuthStateChanged(function(User) {
         if (User) {
             console.log(User);
@@ -70,6 +72,7 @@ $(function ()
         }
     });
 
+    // When a user signs out, reload the page
     btnlogoff.addEventListener('click',function () {
         firebase.auth().signOut();
         $(document).ready(function() {

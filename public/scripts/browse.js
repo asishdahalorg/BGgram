@@ -1,8 +1,11 @@
-
+/* This is the javascript file used for browse.html. It uses pixabay api to get back image json objects
+* and put them in a div in the gallery.*/
 $(function () {
     $("#searchimagebtn").click(function () {
         $('#imgselectioncontainer').empty();
-        clickfunction();
+        $(document).ready(function () {
+            clickfunction();
+        });
     });
 
     $("#pixabaysearch").keyup(function (event) {
@@ -16,6 +19,7 @@ $(function () {
     });
 
     function clickfunction() {
+        // All these options will be toggleable in the future
         var safesearch = 'true';
         var order = 'popular';
         var maxresult = '12';
@@ -36,7 +40,10 @@ $(function () {
         $.getJSON(URL, function (data) {
             if (parseInt(data.totalHits) > 0) {
                 $.each(data.hits, function (i, hit) {
+                    // Pixlr api command
                     var pixlrcommand = "\"javascript:pixlr.overlay.show({image:'"+ data.hits[i].webformatURL+"', title:'"+"image"+data.hits[i].id+"', service:'editor'});\"";
+
+                    // Div container with links surrounding the image and the buttons
                     var newaddition = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
                         "<div class='thumbnail text-right'>" +
                         "<a  href='"+ data.hits[i].webformatURL +"'>" +
@@ -56,6 +63,8 @@ $(function () {
             }
             else {
                 console.log('No hits');
+                gallery.empty();
+                $(document).ready();
                 var noresults = "<div class='col-lg-12 text-center'><h1>No Results, Try Again.</h1></div>";
                 gallery.append(noresults);
             }

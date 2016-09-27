@@ -1,6 +1,8 @@
 /**
  * Created by Asish on 9/27/2016.
  */
+// This is a separate login for uploads.js, the reason for this is because
+// the firebase information is needed to access database
 $(function ()
 {
     const config = {

@@ -29,7 +29,7 @@ body{
 }
 
 .hazard_sign {
-	width=100%;
+	width: 100%;
 }
 .hazard_sign img{
 	margin-right: 0px;
@@ -48,7 +48,6 @@ body{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: auto;
 	border-radius:4px;
 	box-shadow: 1px 1px 1px 1px #808080;
 }
