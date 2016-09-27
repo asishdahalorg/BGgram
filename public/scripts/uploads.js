@@ -149,6 +149,8 @@ $(function ()
                     // $link_to_image.append($thumbnail_of_image,$image_title);
                     // $column.append($link_to_image).appendTo("#galleryrow");
                     console.log(url);
+                    var pixlrcommand = "\"javascript:pixlr.overlay.show({image:'"+encodeURIComponent(url)+"', title:'"+"image" +"', service:'editor'});\"";
+
                     var im = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
                                 "<div class='thumbnail text-right'>" +
                                     "<a href='" + url +"'>" +
@@ -157,7 +159,8 @@ $(function ()
                                     "<br>"+
                                     "<div class='caption'>" +
                                         "<p class='bottom'>" +
-                                            "<a href='../index.html'><button class='btn btn-default' role='button'>Edit</button></a>" +
+                                            "<a href=" + pixlrcommand +
+                                            "<button class='btn btn-default' role='button'>Edit</button></a>" +
                                             " <button class='btn btn-default' role='button'>Save</button>" +
                                         "</p>" +
                                     "</div>" +
