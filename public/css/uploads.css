@@ -1,69 +1,60 @@
 
 body {
     background-color: #d8d8d8;
-}
-.gallery {
-    background-color: #eeeeee;
-    border-radius: 10px;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-.row {
-    margin-top: 1%;
-}
-.thumbnail {
-    background-color: inherit;
-    border: medium none;
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-}
-.thumbnail img {
-    height: 95%;
-    width: 100%;
-}
-.thumb {
-    height: 400px;
-}
-.page_image {
-    display: inline-block;
     margin-bottom: 0;
-    margin-top: auto;
-    width: 100%;
 }
-.ts {
-    border: 1px none;
-    font-size: 17px;
-    overflow: hidden;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.ts:hover {
-    font-size: 170px;
-    height: 100px;
-    opacity: 0.7;
-}
-.galleryrow .thumb:hover .thumbnail:hover .img:hover .ts {
-    height: 100px;
-    opacity: 0.7;
-}
-div.img:hover {
-    height: 100px;
-    margin: 0;
-    opacity: 0.7;
-}
-.input-group {
-    display: inline-table;
-    float: left;
-    margin-right: 0;
-    position: relative;
-    vertical-align: middle;
-    width: 50%;
-}
-.input-group-btn {
-    width: 0 !important;
-}
+/*.gallery {*/
+    /*background-color: #eeeeee;*/
+    /*border-radius: 10px;*/
+    /*margin-left: 5%;*/
+    /*margin-right: 5%;*/
+/*}*/
+/*.row {*/
+    /*margin-top: 1%;*/
+/*}*/
+/*.thumbnail {*/
+    /*background-color: inherit;*/
+    /*border: medium none;*/
+    /*display: inline-block;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+/*}*/
+/*.thumbnail img {*/
+    /*height: 95%;*/
+    /*width: 100%;*/
+/*}*/
+/*.thumb {*/
+    /*height: 400px;*/
+/*}*/
+/*.page_image {*/
+    /*display: inline-block;*/
+    /*margin-bottom: 0;*/
+    /*margin-top: auto;*/
+    /*width: 100%;*/
+/*}*/
+/*.ts {*/
+    /*border: 1px none;*/
+    /*font-size: 17px;*/
+    /*overflow: hidden;*/
+    /*text-align: center;*/
+    /*text-overflow: ellipsis;*/
+    /*white-space: nowrap;*/
+/*}*/
+/*.ts:hover {*/
+    /*font-size: 170px;*/
+    /*height: 100px;*/
+    /*opacity: 0.7;*/
+/*}*/
+/*.galleryrow .thumb:hover .thumbnail:hover .img:hover .ts {*/
+    /*height: 100px;*/
+    /*opacity: 0.7;*/
+/*}*/
+/*div.img:hover {*/
+    /*height: 100px;*/
+    /*margin: 0;*/
+    /*opacity: 0.7;*/
+/*}*/
+
 .choose .upload {
     background: #eeeeee none repeat scroll 0 0;
     color: #968f8f;
@@ -77,20 +68,6 @@ div.img:hover {
 button, input {
     border: 1px solid white;
     border-radius: 4px;
-}
-.thumb img {
-    height: 100% !important;
-    padding: 0 !important;
-    width: 100%;
-}
-#photoDiv {
-    margin-bottom: 15px;
-    padding: 6px;
-    width: 25%;
-}
-#bigCont {
-    padding-left: 28px;
-    padding-right: 28px;
 }
 .upload, .fileInput {
     background: none repeat scroll 0 0;
@@ -110,13 +87,10 @@ button, input {
 .upload:hover{
     background: #fff none repeat scroll 0 0;
 }
-.container-fluid.search{
-    margin-bottom:10px;
+
+.col-lg-3,.col-md-4,.col-sm-6,.col-xs-12{
+    padding:0 !important;
 }
-#sarch{
-    padding-left: 0px;
-}
-#search .input-group{margin: 0px;}
 
 
 

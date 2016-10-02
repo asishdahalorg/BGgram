@@ -151,22 +151,34 @@ $(function ()
                     console.log(url);
                     var pixlrcommand = "\"javascript:pixlr.overlay.show({image:'"+encodeURIComponent(url)+"', title:'"+"image" +"', service:'editor'});\"";
 
-                    var im = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
-                                "<div class='thumbnail text-right'>" +
-                                    "<a href='" + url +"'>" +
-                                        "<img src='" + url+ "'>" +
-                                    "</a>" +
-                                    "<br>"+
-                                    "<div class='caption'>" +
-                                        "<p class='bottom'>" +
-                                            "<a href=" + pixlrcommand +
-                                            "<button class='btn btn-default' role='button'>Edit</button></a>" +
-                                            " <button class='btn btn-default' role='button'>Save</button>" +
-                                        "</p>" +
-                                    "</div>" +
-                                "</div>" +
-                             "</div>";
-                    $("#galleryrow").append(im);
+                   //new image container being uploaded
+                    var a = '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
+                        '<div class="hovereffect">' +
+                        '<img class="img-responsive" src="'+ url +'" alt="">' +
+                        '<div class="overlay">' +
+                        '<h2><a class="imageedit" href="' + url + '">Full Size</a></h2>' +
+                        '<p>' +
+                        '<a class="imageedit" href='+pixlrcommand+'>edit</a>' +
+                        '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
+                    // var im = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
+                    //             "<div class='thumbnail text-right'>" +
+                    //                 "<a href='" + url +"'>" +
+                    //                     "<img src='" + url+ "'>" +
+                    //                 "</a>" +
+                    //                 "<br>"+
+                    //                 "<div class='caption'>" +
+                    //                     "<p class='bottom'>" +
+                    //                         "<a href=" + pixlrcommand +
+                    //                         "<button class='btn btn-default' role='button'>Edit</button></a>" +
+                    //                         " <button class='btn btn-default' role='button'>Save</button>" +
+                    //                     "</p>" +
+                    //                 "</div>" +
+                    //             "</div>" +
+                    //          "</div>";
+                    $("#galleryrow").append(a);
                 })
             });
         }
