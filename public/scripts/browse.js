@@ -44,20 +44,20 @@ $(function () {
             if (parseInt(data.totalHits) > 0) {
                 $.each(data.hits, function (i, hit) {
                     // Pixlr api command
-                    var pixlrcommand = "\"javascript:pixlr.overlay.show({image:'"+ data.hits[i].webformatURL+"', title:'"+"image"+data.hits[i].id+"', service:'editor'});\"";
+                    var pixlrcommand = "javascript:pixlr.overlay.show({image:'"+encodeURIComponent(data.hits[i].webformatURL)+"', title:'"+"image" +"', service:'editor'});";
 
                     //new image contaier
-                    var a = '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
-                        '<div class="hovereffect">' +
-                        '<img class="img-responsive" src="'+ data.hits[i].webformatURL +'" alt="">' +
-                        '<div class="overlay">' +
-                        '<h2><a class="imageedit" href="' + data.hits[i].webformatURL + '">Full Size</a></h2>' +
-                        '<p>' +
-                        '<a class="imageedit" href='+pixlrcommand+'>edit</a>' +
-                        '</p>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>';
+                    // var a = '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
+                    //     '<div class="hovereffect">' +
+                    //     '<img class="img-responsive" src="'+ data.hits[i].webformatURL +'" alt="">' +
+                    //     '<div class="overlay">' +
+                    //     '<h2><a class="imageedit" href="' + data.hits[i].webformatURL + '">Full Size</a></h2>' +
+                    //     '<p>' +
+                    //     '<a class="imageedit" href='+pixlrcommand+'>edit</a>' +
+                    //     '</p>' +
+                    //     '</div>' +
+                    //     '</div>' +
+                    //     '</div>';
                     // Div container with links surrounding the image and the buttons
                     // var newaddition = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
                     //     "<div class='thumbnail text-right'>" +
@@ -73,7 +73,16 @@ $(function () {
                     //     "</div>" +
                     //     "</div>" +
                     //     "</div>";
-                    gallery.append(a);
+                    var tempElement = document.createElement('div');
+                    tempElement.className= "col-lg-3 col-md-4 col-sm-6 col-xs-12";
+
+                    // Rendering the element that contains the photo
+                    ReactDOM.render(
+                        React.createElement(PhotoContainer, {src:data.hits[i].webformatURL,pixlrcommand:pixlrcommand}),
+                        tempElement
+                    );                   // Adding each photo to the main container.
+                    $("#galleryrow").append(tempElement);
+                    console.log(tempElement);
 
                 });
             }
@@ -86,4 +95,28 @@ $(function () {
             }
         });
     }
+
+
+    // Using React; One element containing a photo with all its properties, each photo is the, added to the 'gallery'.
+    var PhotoContainer = React.createClass({
+        displayName:"PhotoContainer",
+        render: function(){
+            return React.createElement("div",{className:"hovereffect"},//Adding each class to photos
+                        React.createElement(PhotoImg, {src: this.props.src}),
+                        React.createElement("div", {className: "overlay"},
+                            React.createElement("h2",null,
+                                React.createElement("a",{className:"imageedit",href:this.props.src},"Full Screen") ),
+                            React.createElement("p",null,
+                                React.createElement("a",{className:"imageedit",href:this.props.pixlrcommand},"Edit") )
+                        )
+            );
+        }
+    });
+    // For each image.
+    var PhotoImg = React.createClass({
+        displayName:"PhotoImg",
+        render: function(){
+            return React.createElement("img",{className:"img-responsive",src:this.props.src});
+        }
+    });
 });

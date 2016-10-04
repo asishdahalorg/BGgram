@@ -1,38 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--Navbar implemented by abudayah
+    Source code:http://bootsnipp.com/snippets/featured/fancy-navbar-login-sign-in-form-->
 <head>
     <title>BGgram | Catalog</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/searchbutton.css">
-    <link rel="stylesheet" href="../css/uploads.css">
-    <link rel="stylesheet" href="../css/header2.css">
-    <link rel="stylesheet" href="../css/hover.css">
-    <script src="../jquery.min.js"></script>
-    <script src="../scripts/uploads.js"></script>
-    <script src="../scripts/pixlr.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-storage.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--Local-->
+    <link href="css/header2.css" type="text/css" rel="stylesheet">
+    <script src="scripts/login.js"></script>
+
+    <!--External-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://lipis.github.io/bootstrap-social/bootstrap-social.css" rel="stylesheet">
-    <script type="text/javascript">
-        pixlr.settings.exit = 'http://localhost:5000/html/browse.html';
-        pixlr.settings.method = 'GET';
-        pixlr.settings.redirect = false;
-    </script>
-
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default outer" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -42,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../index.html">BGGram</a>
+            <a class="navbar-brand" href="index.html">BGGram</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,8 +37,8 @@
                 <li><!--class="active">--><a href="aboutus.html">About Us</a></li>
                 <li><a href="browse.html">Browse</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="display: none;">Editor<span class="caret"></span></a>
-                    <ul class="dropdown-menu" style="display: none" role="menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Editor<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
                         <li><a href="#">Create New</a></li>
                         <li><a href="#">Load</a></li>
                         <li class="divider"></li>
@@ -66,19 +52,20 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-text" style="display: none;">Already have an account?</p></li>
                 <li class="dropdown">
-                    <a href="#" id='username' class="dropdown-toggle" data-toggle="dropdown" ><b></b><span class="caret"></span></a>
-                    <ul id='loggedinmenu' class="dropdown-menu" role="menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Username</b><span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
                         <li><a href="uploads.html">My Uploads</a></li>
                         <li class="divider"></li>
                         <li>
                             <button type="submit" id="userlogoff" class="btn btn-primary btn-block">Sign Off</button>
                         </li>
                     </ul>
-                    <a href="#" class="dropdown-toggle" id="logininfo" data-toggle="dropdown"><b></b> <span class="caret"></span></a>
-                    <ul id="login-dp" class="dropdown-menu" style="padding: 10px; padding-bottom: 5px;">
+                    <a href="#" class="dropdown-toggle" id="logininfo" data-toggle="dropdown" style="display: none;"><b>Login</b> <span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu" style="padding: 10px; padding-bottom: 5px; display: none;">
                         <li>
-                            <div class="row">
+                            <div class="row" style="display: none;">
                                 <div class="col-md-12">
                                     <label class="sr-only" for="useremail">Username / Email</label>
                                     <input type="email" class="form-control" id="useremail" placeholder="Email address" required>
@@ -101,19 +88,5 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-        <!-- A fancy bootstrap search bar. The main action is where the button is.-->
-<div class="container-fluid search">
-    <div class="pull-right">
-    <input class = "fileInput choose" type="file" >
-    <button class = "upload">Upload</button>
-    </div>
-
-</div>
-<!--&lt;!&ndash; It will be generated by the button&ndash;&gt;-->
-<!--<div id = 'bigCont' class="container-fluid gallery">-->
-<div id="here"> </div>
-<div class="row" id="galleryrow" data-index="1">
-    <div><img id="loadingGif" src="../images/2.gif" style="margin-left:50%;"/></div>
-</div>
 </body>
 </html>

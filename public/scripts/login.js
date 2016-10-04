@@ -14,6 +14,7 @@ $(function ()
     //  initialize app
     firebase.initializeApp(config);
 
+
     // var provider = new firebase.auth.GoogleAuthProvider();
     // provider.addScope('https://www.googleapis.com/auth/plus.login');
     const txtEmail = document.getElementById('useremail');
@@ -27,14 +28,22 @@ $(function ()
     const loggedoutmenu = $('#login-dp');
     const logininvite = $('#logininfo');
 
-    btnlogin.addEventListener('click',function () {
+    btnlogoff.addEventListener('click', function () {
+        console.log('here');
+        firebase.auth().signOut();
+        $(document).ready(function () {
+            window.location.reload();
+        });
+    });
+
+    btnlogin.addEventListener('click', function () {
         const email = txtEmail.value;
         const pass = txtpass.value;
         const auth = firebase.auth();
 
-        const promise = auth.signInWithEmailAndPassword(email,pass);
-        promise.then(function() {
-            $(document).ready(function() {
+        const promise = auth.signInWithEmailAndPassword(email, pass);
+        promise.then(function () {
+            $(document).ready(function () {
                 window.location.reload();
             });
         });
@@ -43,40 +52,101 @@ $(function ()
         });
 
 
-
     });
 
-    // Upon login/logoff, do these things
-    firebase.auth().onAuthStateChanged(function(User) {
-        if (User) {
-            console.log(User);
-            loggedoutmenu.hide();
-            logininvite.hide();
-            loggedinmenu.removeAttr('display');
-            loggedinmenu.removeAttr('class');
-            loggedinmenu.attr('class','dropdown-menu');
-            username.removeAttr('display');
-            username.removeAttr('class');
-            username.attr('class','dropdown-toggle');
-            username.text(User.email);
-        } else {
-            loggedinmenu.hide();
-            username.hide();
-            loggedoutmenu.removeAttr('display');
-            loggedoutmenu.removeAttr('class');
-            loggedoutmenu.attr('class','dropdown-menu');
-            logininvite.removeAttr('display');
-            logininvite.removeAttr('class');
-            logininvite.attr('class','dropdown-toggle');
-            logininvite.text('Login');
+
+    var logoffmenu = React.createClass({
+
+        render: function () {
+            return (
+                React.createElement('li', {className: "dropdown"},
+                    React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
+                        React.createElement("b", null, 'Login'),
+                        React.createElement("span", {className: 'caret'})
+                    ),
+                    React.createElement('ul', {className: "dropdown-menu"},
+                        React.createElement('li', null,
+                            React.createElement('div', {className: "row"},
+                                React.createElement('div', {className: "col-md-12"},
+                                    React.createElement('label', {className: "sr-only", htmlFor: "useremail"}),
+                                    React.createElement('input', {
+                                        className: "form-control",
+                                        type: "email",
+                                        id: "useremail",
+                                        placeholder: "Email address",
+                                        required: 'true'
+                                    })
+                                    // React.createElement('input',{className:"form-control",type:"email",id:"useremail", placeholder:"Email address", required:'true'},'Username / Email')
+                                ),
+                                React.createElement('div', {className: "col-md-12"},
+                                    React.createElement('label', {className: "sr-only", htmlFor: "userpass"}),
+                                    React.createElement('input', {
+                                        className: "form-control",
+                                        type: "password",
+                                        id: "userpass",
+                                        placeholder: "Password",
+                                        required: 'true'
+                                    })
+                                ),
+                                React.createElement('div', {className: "col-md-12"},
+                                    React.createElement('button', {
+                                        className: "btn btn-primary btn-block",
+                                        id: "userlogin",
+                                        type: "submit"
+                                    }, 'Sign in')
+                                ),
+                                React.createElement('div', {className: "bottom text-center"},
+                                    React.createElement('a', {href: 'register.html'},
+                                        React.createElement('b', null, 'Register')
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
         }
     });
 
-    // When a user signs out, reload the page
-    btnlogoff.addEventListener('click',function () {
-        firebase.auth().signOut();
-        $(document).ready(function() {
-            window.location.reload();
-        });
+    var loginmenu = React.createClass({
+
+        render: function () {
+            return (
+                React.createElement('li', {className: "dropdown"},
+                    React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
+                        React.createElement("b", null, this.props.username),
+                        React.createElement("span", {className: 'caret'})
+                    ),
+                    React.createElement('ul', {className: 'dropdown-menu', role: 'menu'},
+                        React.createElement('li', null,
+                            React.createElement('a', {href: 'uploads.html'}, 'Uploads')),
+                        React.createElement('li', {className: 'divider'}),
+                        React.createElement('li', null,
+                            React.createElement('button', {id: 'userlogoff', className: "btn btn-primary btn-block"}, 'Sign Off')
+                        )
+                    )
+                )
+            )
+        }
     });
+    // Upon login/logoff, do these things
+    firebase.auth().onAuthStateChanged(function (User) {
+        var logmenu = document.getElementById('logmenu');
+        if (User) {
+            console.log(User);
+            ReactDOM.render(
+                React.createElement(loginmenu, {username: User.email}),
+                logmenu
+            );
+            console.log(logmenu);
+
+        } else {
+            console.log(User);
+            ReactDOM.render(
+                React.createElement(logoffmenu),
+                logmenu
+            );
+        }
+    });
+
 });
