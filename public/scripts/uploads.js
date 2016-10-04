@@ -79,10 +79,10 @@ $(function ()
             window.location.reload();
         });
     });
-
+    var LoadingComplete=false;
     function initializePage(user) {
         var arr = new Set();
-        var LoadingComplete=false;
+        
 
         var userData = firebase.database().ref('users/' + user.uid);
         console.log("user data" + userData);
@@ -141,28 +141,28 @@ $(function ()
                 var pr = storage.ref("Photo/" + val);
                 var imgsrc = "";
                 pr.getDownloadURL().then(function (url) {
-                    // var $column = $('<div></div>').attr("class","col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb");
-                    // var $link_to_image = $("<a></a>").attr("class","thumbnail imglink").attr("href",url);
+                    // var $column = $('<div></div>').attr("class",s","thumbnail imglink").attr("href",url);
                     // var $thumbnail_of_image = $("<img/>").attr("class","img-thumbnail img-responsive img-rounded page_image").attr("src",url);
                     // var $image_title = $("<div></div>").attr("class","ts").text("Photo");
                     // //the main coloumn is appended into the row
                     // $link_to_image.append($thumbnail_of_image,$image_title);
-                    // $column.append($link_to_image).appendTo("#galleryrow");
+                    // $column.append($link_to_image).appendTo("#galleryrow");"col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb");
+                    // var $link_to_image = $("<a></a>").attr("clas
                     console.log(url);
-                    var pixlrcommand = "\"javascript:pixlr.overlay.show({image:'"+encodeURIComponent(url)+"', title:'"+"image" +"', service:'editor'});\"";
+                    var pixlrcommand = "javascript:pixlr.overlay.show({image:'"+encodeURIComponent(url)+"', title:'"+"image" +"', service:'editor'});";
 
                    //new image container being uploaded
-                    var a = '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
-                        '<div class="hovereffect">' +
-                        '<img class="img-responsive" src="'+ url +'" alt="">' +
-                        '<div class="overlay">' +
-                        '<h2><a class="imageedit" href="' + url + '">Full Size</a></h2>' +
-                        '<p>' +
-                        '<a class="imageedit" href='+pixlrcommand+'>edit</a>' +
-                        '</p>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>';
+                    // var a = '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
+                    //     '<div class="hovereffect">' +
+                    //     '<img class="img-responsive" src="'+ url +'" alt="">' +
+                    //     '<div class="overlay">' +
+                    //     '<h2><a class="imageedit" href="' + url + '">Full Size</a></h2>' +
+                    //     '<p>' +
+                    //     '<a class="imageedit" href='+pixlrcommand+'>edit</a>' +
+                    //     '</p>' +
+                    //     '</div>' +
+                    //     '</div>' +
+                    //     '</div>';
                     // var im = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
                     //             "<div class='thumbnail text-right'>" +
                     //                 "<a href='" + url +"'>" +
@@ -178,7 +178,19 @@ $(function ()
                     //                 "</div>" +
                     //             "</div>" +
                     //          "</div>";
-                    $("#galleryrow").append(a);
+
+                    // Temp Element acting as grid.
+                    var tempElement = document.createElement('div');
+                    tempElement.className= "col-lg-3 col-md-4 col-sm-6 col-xs-12";
+
+                    // Rendering the element that contains the photo
+                    ReactDOM.render(
+                      React.createElement(PhotoContainer, {src: url,pixlrcommand:pixlrcommand}),
+                      tempElement
+                    );                   // Adding each photo to the main container.
+                    $("#galleryrow").append(tempElement);
+
+                    // $("#galleryrow").append(a);
                 })
             });
         }
@@ -210,4 +222,30 @@ $(function ()
 
         waitToLoadPhoto();
     }
+
+
+   
+   // Using React; One element containing a photo with all its properties, each photo is the, added to the 'gallery'.
+    var PhotoContainer = React.createClass({
+        displayName:"PhotoContainer",
+        render: function(){
+            return React.createElement("div",{className:"hovereffect"},//Adding each class to photos
+                                       React.createElement(PhotoImg, {src: this.props.src}),
+                                       React.createElement("div", {className: "overlay"},
+                                           React.createElement("h2",null,
+                                                 React.createElement("a",{className:"imageedit",href:this.props.src},"Full Screen") ),
+                                            React.createElement("p",null,
+                                                 React.createElement("a",{className:"imageedit",href:this.props.pixlrcommand},"Edit") )
+                                           )
+                                       );
+        }
+    });
+    // For each image.
+    var PhotoImg = React.createClass({
+        displayName:"PhotoImg",
+        render: function(){
+            return React.createElement("img",{className:"img-responsive",src:this.props.src});
+        }
+    });    
 });
+
