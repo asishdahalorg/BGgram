@@ -34,7 +34,7 @@ The github releases are located at
 
 ##HW3 Scenarios
 
-####__Implemented: Scenario one and two__
+####__Implemented: Scenario one and two and four__
 
 ###__Scenario one - Using Firebase__: 
 * The user will have the ability to login to his account using an account he registers, which will save the information in the Firebase database.
@@ -61,8 +61,7 @@ User can search any image they want on the browse page. If they like an image, t
 * The browse page will have toggle abilities between different types of views
 * Pictures will be browseable using tags
 
-###__Scenario four - View and search for images__:
-* The user will have the ability to search public photos (including other users’ photos) from the Firebase database as well as from the pixabay api.
+###__Scenario four - View__:
 * Browse page will feature a toggle between gallery mode and normal mode. Normal mode will have __expanded__ div on hover.
 
 
