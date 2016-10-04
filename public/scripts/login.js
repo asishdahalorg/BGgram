@@ -1,9 +1,11 @@
 /**
- * Created by Asish on 9/26/2016.
+ * Created by Asish on 9/27/2016.
  */
+// This is a separate login for uploads.js, the reason for this is because
+// the firebase information is needed to access database
+var loadingComplete  = false;
 $(function ()
 {
-    // This is used by most pages to login a user
     const config = {
         apiKey: "AIzaSyChi7CPreml7IQNQ5H42gfbybfs6538bY4",
         authDomain: "bggram-d9ba0.firebaseapp.com",
@@ -13,7 +15,6 @@ $(function ()
     };
     //  initialize app
     firebase.initializeApp(config);
-
 
     // var provider = new firebase.auth.GoogleAuthProvider();
     // provider.addScope('https://www.googleapis.com/auth/plus.login');
@@ -28,125 +29,176 @@ $(function ()
     const loggedoutmenu = $('#login-dp');
     const logininvite = $('#logininfo');
 
-    btnlogoff.addEventListener('click', function () {
-        console.log('here');
-        firebase.auth().signOut();
-        $(document).ready(function () {
-            window.location.reload();
-        });
-    });
-
-    btnlogin.addEventListener('click', function () {
+    btnlogin.addEventListener('click',function () {
         const email = txtEmail.value;
         const pass = txtpass.value;
         const auth = firebase.auth();
 
-        const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.then(function () {
-            $(document).ready(function () {
+        const promise = auth.signInWithEmailAndPassword(email,pass);
+        promise.then(function() {
+            $(document).ready(function() {
                 window.location.reload();
             });
         });
         promise.catch(function (error) {
             console.log(error);
         });
-
-
     });
 
-
-    var logoffmenu = React.createClass({
-
-        render: function () {
-            return (
-                React.createElement('li', {className: "dropdown"},
-                    React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
-                        React.createElement("b", null, 'Login'),
-                        React.createElement("span", {className: 'caret'})
-                    ),
-                    React.createElement('ul', {className: "dropdown-menu"},
-                        React.createElement('li', null,
-                            React.createElement('div', {className: "row"},
-                                React.createElement('div', {className: "col-md-12"},
-                                    React.createElement('label', {className: "sr-only", htmlFor: "useremail"}),
-                                    React.createElement('input', {
-                                        className: "form-control",
-                                        type: "email",
-                                        id: "useremail",
-                                        placeholder: "Email address",
-                                        required: 'true'
-                                    })
-                                    // React.createElement('input',{className:"form-control",type:"email",id:"useremail", placeholder:"Email address", required:'true'},'Username / Email')
-                                ),
-                                React.createElement('div', {className: "col-md-12"},
-                                    React.createElement('label', {className: "sr-only", htmlFor: "userpass"}),
-                                    React.createElement('input', {
-                                        className: "form-control",
-                                        type: "password",
-                                        id: "userpass",
-                                        placeholder: "Password",
-                                        required: 'true'
-                                    })
-                                ),
-                                React.createElement('div', {className: "col-md-12"},
-                                    React.createElement('button', {
-                                        className: "btn btn-primary btn-block",
-                                        id: "userlogin",
-                                        type: "submit"
-                                    }, 'Sign in')
-                                ),
-                                React.createElement('div', {className: "bottom text-center"},
-                                    React.createElement('a', {href: 'register.html'},
-                                        React.createElement('b', null, 'Register')
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            )
-        }
-    });
-
-    var loginmenu = React.createClass({
-
-        render: function () {
-            return (
-                React.createElement('li', {className: "dropdown"},
-                    React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
-                        React.createElement("b", null, this.props.username),
-                        React.createElement("span", {className: 'caret'})
-                    ),
-                    React.createElement('ul', {className: 'dropdown-menu', role: 'menu'},
-                        React.createElement('li', null,
-                            React.createElement('a', {href: 'uploads.html'}, 'Uploads')),
-                        React.createElement('li', {className: 'divider'}),
-                        React.createElement('li', null,
-                            React.createElement('button', {id: 'userlogoff', className: "btn btn-primary btn-block"}, 'Sign Off')
-                        )
-                    )
-                )
-            )
-        }
-    });
-    // Upon login/logoff, do these things
-    firebase.auth().onAuthStateChanged(function (User) {
-        var logmenu = document.getElementById('logmenu');
+    firebase.auth().onAuthStateChanged(function(User) {
         if (User) {
-            console.log(User);
-            ReactDOM.render(
-                React.createElement(loginmenu, {username: User.email}),
-                logmenu
-            );
-            console.log(logmenu);
-
+            initializePage(User);
+            loggedoutmenu.hide();
+            logininvite.hide();
+            loggedinmenu.removeAttr('display');
+            loggedinmenu.removeAttr('class');
+            loggedinmenu.attr('class','dropdown-menu');
+            username.removeAttr('display');
+            username.removeAttr('class');
+            username.attr('class','dropdown-toggle');
+            username.text(User.email);
         } else {
-            console.log(User);
-            ReactDOM.render(
-                React.createElement(logoffmenu),
-                logmenu
-            );
+            loggedinmenu.hide();
+            username.hide();
+            loggedoutmenu.removeAttr('display');
+            loggedoutmenu.removeAttr('class');
+            loggedoutmenu.attr('class','dropdown-menu');
+            logininvite.removeAttr('display');
+            logininvite.removeAttr('class');
+            logininvite.attr('class','dropdown-toggle');
+            logininvite.text('Login');
         }
     });
 
+    btnlogoff.addEventListener('click',function () {
+        firebase.auth().signOut();
+        $(document).ready(function() {
+            window.location.reload();
+        });
+    });
+    var LoadingComplete=false;
+    function initializePage(user) {
+        var arr = new Set();
+        
+
+        var userData = firebase.database().ref('users/' + user.uid);
+        userData.update
+        ({
+            username: user.displayName,
+            email: user.email,
+            profile_picture: ""
+        });
+        var retriveData;
+        retriveData = firebase.database().ref('users/');
+
+        retriveData.on('value', function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                // key will be the UID
+
+                var uid = childSnapshot.key;
+                var path = uid + "/";
+                // childData will be the actual contents of the child
+                if(childSnapshot.key==user.uid){
+                    for (var photoIndex in childSnapshot.val().photos) {
+                        if (childSnapshot.val().photos.hasOwnProperty(photoIndex)) {
+                            if (childSnapshot.val().photos[photoIndex].status == "public") {
+                                var photoName = photoIndex.replace(/_(?!.*?_)/gi, ".");
+                                var photoPath = path + photoName;
+                                arr.add(photoPath);
+                            }
+                        }
+                    }
+                }
+                loadingComplete = true;
+            });
+
+        });
+
+        // Get a reference to the storage service, which is used to create references in your storage bucket
+        var storage = firebase.storage();
+
+        // Create a storage reference from our storage service
+        var storageRef = storage.ref();
+
+        function uploadPhoto() {
+            var photo = $(".fileInput")[0].files[0];
+            var storageRef = storage.ref("Photo/" + user.uid);
+            var imagesRef = storageRef.child(photo.name);
+            updatePhotoArray(photo.name);
+            imagesRef.put(photo);
+            console.log("Photo Uploaded");
+        }
+
+        function getPhotos() {
+            arr.forEach(function (val) {
+                var pr = storage.ref("Photo/" + val);
+                var imgsrc = "";
+                pr.getDownloadURL().then(function (url) {
+                    var pixlrcommand = "javascript:pixlr.overlay.show({image:'"+encodeURIComponent(url)+"', title:'"+"image" +"', service:'editor'});";
+                    // Temp Element acting as grid.
+                    var tempElement = document.createElement('div');
+                    tempElement.className= "col-lg-3 col-md-4 col-sm-6 col-xs-12";
+
+                    // Rendering the element that contains the photo
+                    ReactDOM.render(
+                      React.createElement(PhotoContainer, {src: url,pixlrcommand:pixlrcommand}),
+                      tempElement
+                    );                   // Adding each photo to the main container.
+                    $("#galleryrow").append(tempElement);
+
+                    // $("#galleryrow").append(a);
+                })
+            });
+        }
+
+        function updatePhotoArray(name) {
+            var userData = firebase.database().ref('users/' + user.uid + "/photos/" + name.replace(".", "_"));
+            userData.set
+            ({
+                status: "public"
+            });
+        }
+
+        $(".upload").click(function () {
+
+            uploadPhoto();
+            waitToLoadPhoto();
+        });
+        function waitToLoadPhoto() {
+            var onRetriveComplete = setInterval(function () {
+                if (loadingComplete) {
+                    clearInterval(onRetriveComplete);
+                    loadingComplete = false;
+                    $("#galleryrow div").remove();
+                    getPhotos();
+                }
+
+            }, 500);
+        }
+
+        waitToLoadPhoto();
+    }   
+   // Using React; One element containing a photo with all its properties, each photo is the, added to the 'gallery'.
+    var PhotoContainer = React.createClass({
+        displayName:"PhotoContainer",
+        render: function(){
+            return React.createElement("div",{className:"hovereffect"},//Adding each class to photos
+                                       React.createElement(PhotoImg, {src: this.props.src}),
+                                       React.createElement("div", {className: "overlay"},
+                                           React.createElement("h2",null,
+                                                 React.createElement("a",{className:"imageedit",href:this.props.src},"Full Screen") ),
+                                            React.createElement("p",null,
+                                                 React.createElement("a",{className:"imageedit",href:this.props.pixlrcommand},"Edit") )
+                                           )
+                                       );
+        }
+    });
+    // For each image.
+    var PhotoImg = React.createClass({
+        displayName:"PhotoImg",
+        render: function(){
+            return React.createElement("img",{className:"img-responsive",src:this.props.src});
+        }
+    });    
 });
+
