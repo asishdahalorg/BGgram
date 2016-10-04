@@ -3,6 +3,7 @@
  */
 // This is a separate login for uploads.js, the reason for this is because
 // the firebase information is needed to access database
+var loadingComplete  = false;
 $(function ()
 {
     const config = {
@@ -42,15 +43,11 @@ $(function ()
         promise.catch(function (error) {
             console.log(error);
         });
-
-
-
     });
 
     firebase.auth().onAuthStateChanged(function(User) {
         if (User) {
             initializePage(User);
-            console.log(User);
             loggedoutmenu.hide();
             logininvite.hide();
             loggedinmenu.removeAttr('display');
@@ -85,33 +82,30 @@ $(function ()
         
 
         var userData = firebase.database().ref('users/' + user.uid);
-        console.log("user data" + userData);
         userData.update
         ({
             username: user.displayName,
             email: user.email,
             profile_picture: ""
         });
-        var retriveData = firebase.database().ref('users/' + user.uid);
-        retriveData.on('value', function (snapshot) {
-            // val().email||photos||username||profilePicture
-            console.log(snapshot.val().username);
-        });
-        retriveData = firebase.database().ref('users');
+        var retriveData;
+        retriveData = firebase.database().ref('users/');
 
         retriveData.on('value', function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
                 // key will be the UID
+
                 var uid = childSnapshot.key;
                 var path = uid + "/";
                 // childData will be the actual contents of the child
-                for (var photoIndex in childSnapshot.val().photos) {
-                    if (childSnapshot.val().photos.hasOwnProperty(photoIndex)) {
-                        if (childSnapshot.val().photos[photoIndex].status == "public") {
-                            var photoName = photoIndex.replace(/_(?!.*?_)/gi, ".");
-                            var photoPath = path + photoName;
-                            console.log(photoPath);
-                            arr.add(photoPath);
+                if(childSnapshot.key==user.uid){
+                    for (var photoIndex in childSnapshot.val().photos) {
+                        if (childSnapshot.val().photos.hasOwnProperty(photoIndex)) {
+                            if (childSnapshot.val().photos[photoIndex].status == "public") {
+                                var photoName = photoIndex.replace(/_(?!.*?_)/gi, ".");
+                                var photoPath = path + photoName;
+                                arr.add(photoPath);
+                            }
                         }
                     }
                 }
@@ -136,49 +130,11 @@ $(function ()
         }
 
         function getPhotos() {
-            console.log(arr);
             arr.forEach(function (val) {
                 var pr = storage.ref("Photo/" + val);
                 var imgsrc = "";
                 pr.getDownloadURL().then(function (url) {
-                    // var $column = $('<div></div>').attr("class",s","thumbnail imglink").attr("href",url);
-                    // var $thumbnail_of_image = $("<img/>").attr("class","img-thumbnail img-responsive img-rounded page_image").attr("src",url);
-                    // var $image_title = $("<div></div>").attr("class","ts").text("Photo");
-                    // //the main coloumn is appended into the row
-                    // $link_to_image.append($thumbnail_of_image,$image_title);
-                    // $column.append($link_to_image).appendTo("#galleryrow");"col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb");
-                    // var $link_to_image = $("<a></a>").attr("clas
-                    console.log(url);
                     var pixlrcommand = "javascript:pixlr.overlay.show({image:'"+encodeURIComponent(url)+"', title:'"+"image" +"', service:'editor'});";
-
-                   //new image container being uploaded
-                    // var a = '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
-                    //     '<div class="hovereffect">' +
-                    //     '<img class="img-responsive" src="'+ url +'" alt="">' +
-                    //     '<div class="overlay">' +
-                    //     '<h2><a class="imageedit" href="' + url + '">Full Size</a></h2>' +
-                    //     '<p>' +
-                    //     '<a class="imageedit" href='+pixlrcommand+'>edit</a>' +
-                    //     '</p>' +
-                    //     '</div>' +
-                    //     '</div>' +
-                    //     '</div>';
-                    // var im = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
-                    //             "<div class='thumbnail text-right'>" +
-                    //                 "<a href='" + url +"'>" +
-                    //                     "<img src='" + url+ "'>" +
-                    //                 "</a>" +
-                    //                 "<br>"+
-                    //                 "<div class='caption'>" +
-                    //                     "<p class='bottom'>" +
-                    //                         "<a href=" + pixlrcommand +
-                    //                         "<button class='btn btn-default' role='button'>Edit</button></a>" +
-                    //                         " <button class='btn btn-default' role='button'>Save</button>" +
-                    //                     "</p>" +
-                    //                 "</div>" +
-                    //             "</div>" +
-                    //          "</div>";
-
                     // Temp Element acting as grid.
                     var tempElement = document.createElement('div');
                     tempElement.className= "col-lg-3 col-md-4 col-sm-6 col-xs-12";
@@ -221,10 +177,7 @@ $(function ()
         }
 
         waitToLoadPhoto();
-    }
-
-
-   
+    }   
    // Using React; One element containing a photo with all its properties, each photo is the, added to the 'gallery'.
     var PhotoContainer = React.createClass({
         displayName:"PhotoContainer",
