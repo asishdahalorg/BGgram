@@ -15,7 +15,6 @@ $(function () {
         if ($("#pixabaysearch").val().length > 2) {
             $("#searchimagebtn").click();
         }
-
     });
 
     function clickfunction() {
@@ -45,45 +44,17 @@ $(function () {
                 $.each(data.hits, function (i, hit) {
                     // Pixlr api command
                     var pixlrcommand = "javascript:pixlr.overlay.show({image:'"+encodeURIComponent(data.hits[i].webformatURL)+"', title:'"+"image" +"', service:'editor'});";
-
-                    //new image contaier
-                    // var a = '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
-                    //     '<div class="hovereffect">' +
-                    //     '<img class="img-responsive" src="'+ data.hits[i].webformatURL +'" alt="">' +
-                    //     '<div class="overlay">' +
-                    //     '<h2><a class="imageedit" href="' + data.hits[i].webformatURL + '">Full Size</a></h2>' +
-                    //     '<p>' +
-                    //     '<a class="imageedit" href='+pixlrcommand+'>edit</a>' +
-                    //     '</p>' +
-                    //     '</div>' +
-                    //     '</div>' +
-                    //     '</div>';
-                    // Div container with links surrounding the image and the buttons
-                    // var newaddition = "<div class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>" +
-                    //     "<div class='thumbnail text-right'>" +
-                    //     "<a  href='"+ data.hits[i].webformatURL +"'>" +
-                    //     "<img class='img-responsive img-thumbnail browseimg' src='" + data.hits[i].previewURL + "'>" +
-                    //     "</a>" +
-                    //     "<div class='caption'>" +
-                    //     "<p>" +
-                    //     "<a href="+pixlrcommand+">"+
-                    //     "<button class='btn btn-default' role='button'>Edit</button></a>" +
-                    //     "<button class='btn btn-default' role='button'>Save</button>" +
-                    //     "</p>" +
-                    //     "</div>" +
-                    //     "</div>" +
-                    //     "</div>";
                     var tempElement = document.createElement('div');
-                    tempElement.className= "col-lg-3 col-md-4 col-sm-6 col-xs-12";
+                    tempElement.className = "col-lg-3 col-md-4 col-sm-6 col-xs-12, imageOuter";
 
                     // Rendering the element that contains the photo
+
                     ReactDOM.render(
                         React.createElement(PhotoContainer, {src:data.hits[i].webformatURL,pixlrcommand:pixlrcommand}),
                         tempElement
                     );                   // Adding each photo to the main container.
-                    $("#galleryrow").append(tempElement);
+                    $("#imgselectioncontainer").append(tempElement);
                     console.log(tempElement);
-
                 });
             }
             else {
@@ -95,8 +66,6 @@ $(function () {
             }
         });
     }
-
-
     // Using React; One element containing a photo with all its properties, each photo is the, added to the 'gallery'.
     var PhotoContainer = React.createClass({
         displayName:"PhotoContainer",
