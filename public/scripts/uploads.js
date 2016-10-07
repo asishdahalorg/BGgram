@@ -120,6 +120,10 @@ $(function ()
         // Create a storage reference from our storage service
         var storageRef = storage.ref();
 
+        $(".topFile").click(function(){
+
+            $(".fileInput").click();
+        });
         function uploadPhoto() {
             var photo = $(".fileInput")[0].files[0];
             var storageRef = storage.ref("Photo/" + user.uid);
@@ -137,7 +141,7 @@ $(function ()
                     var pixlrcommand = "javascript:pixlr.overlay.show({image:'"+encodeURIComponent(url)+"', title:'"+"image" +"', service:'editor'});";
                     // Temp Element acting as grid.
                     var tempElement = document.createElement('div');
-                    tempElement.className= "col-lg-3 col-md-4 col-sm-6 col-xs-12";
+                    tempElement.className= "col-lg-3 col-md-4 col-sm-6 col-xs-12, imageOuter";
 
                     // Rendering the element that contains the photo
                     ReactDOM.render(
@@ -145,8 +149,6 @@ $(function ()
                       tempElement
                     );                   // Adding each photo to the main container.
                     $("#galleryrow").append(tempElement);
-
-                    // $("#galleryrow").append(a);
                 })
             });
         }
