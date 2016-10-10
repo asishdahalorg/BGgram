@@ -1,6 +1,8 @@
 /**
  * Created by Asish on 9/26/2016.
- */
+*/
+var user;
+var initialized = false;
 $(function ()
 {
     // This is used by most pages to login a user
@@ -13,7 +15,7 @@ $(function ()
     };
     //  initialize app
     firebase.initializeApp(config);
-
+initialized = true;
 
     // var provider = new firebase.auth.GoogleAuthProvider();
     // provider.addScope('https://www.googleapis.com/auth/plus.login');
@@ -50,8 +52,6 @@ $(function ()
         promise.catch(function (error) {
             console.log(error);
         });
-
-
     });
 
 
@@ -133,15 +133,16 @@ $(function ()
     firebase.auth().onAuthStateChanged(function (User) {
         var logmenu = document.getElementById('logmenu');
         if (User) {
-            console.log(User);
+            user = User;
+            // console.log(User);
             ReactDOM.render(
                 React.createElement(loginmenu, {username: User.email}),
                 logmenu
             );
-            console.log(logmenu);
+            // console.log(logmenu);
 
         } else {
-            console.log(User);
+            // console.log(User);
             ReactDOM.render(
                 React.createElement(logoffmenu),
                 logmenu

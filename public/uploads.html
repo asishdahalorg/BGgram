@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>BGgram | Catalog</title>
+    <title>BGgram | Uploads</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -34,6 +34,65 @@
 
 </head>
 <body>
+    <!-- Modal panel for uploading an image from http://v4-alpha.getbootstrap.com/components/modal/#usage -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="exampleModalLabel">Photo Options</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div>
+              <label for="photoName" class="form-control-label">Photo Name:</label>
+              <input placeholder = "Name does not work for now"type="text" class="form-control" id="photoNameId">
+            </div>
+            <div>
+                <!-- Privacy type for photo -->
+                <br><b>Privacy:<br>
+              <label class="Privacy">
+                    Private
+                  <input type="radio" name = "privacy" value="private">
+              </label>
+              <label class="Privacy">
+                   &nbsp; Public
+                  <input type="radio" name = "privacy" value="public">
+              </label>
+              <!-- Theme type of photo -->
+               <br><b>Type:<br>
+
+              <label class="Type">
+                   Food
+                  <input type="radio" name = "theme" value = "food">
+              </label>
+
+              <label class="Type">
+                   &nbsp;Cars
+                  <input type="radio" name = "theme" value = "cars">
+              </label>
+
+              <label class="Type">
+                   &nbsp; Landscape
+                  <input type="radio" name = "theme" value = "landscape">
+              </label>
+
+              <label class="Type">
+                   &nbsp; People
+                  <input type="radio" name = "theme" value = "people">
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary save">Save Options</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
