@@ -56,13 +56,13 @@ User can search any image they want on the browse page. If they like an image, t
 * Browse page is limited to MAX of 12 images. No page functionality(pg 1, pg 2, etc.)
 
 ###__Scenario three - Data manipulation with D3.js__:
-* The user has have the ability to see the most liked photos and photos with most views.
+* The user has have the ability to see data visualizations containing information about most liked photos and photos with most views.
 * The browse page has have toggle abilities between different types of views.
 * Pictures are browseable using tags.
-* Photos have a like button.
+* Photos have a like button and BGgram photos now have a theme type.
 
 ###__Scenario four - Gallery View__:
 * Browse page features a toggle between Pixlr gallery mode or BGgram gallery mode.
+* Photos are searchable between this two different galleries. 
 * Normal mode have __expanded__ div on hover.
-* Photos have like buttons.
 
