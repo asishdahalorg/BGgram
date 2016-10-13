@@ -166,7 +166,7 @@ $(function () {
         var gallery=$("#imgselectioncontainer");
         // console.log(gallery.text());
         var API_KEY = '3381729-f41882d53be3b6ccca98a6179';
-        var URL = "http://pixabay.com/api/?key=" + API_KEY + searchparam + "&image_type=" + phototype +
+        var URL = "https://pixabay.com/api/?key=" + API_KEY + searchparam + "&image_type=" + phototype +
             '&safesearch=' + safesearch + '&order=' + order + '&per_page=' + maxresult +'&min_height='+ min_height +
                 '&orientation=' + orientation;
         // console.log(URL);
