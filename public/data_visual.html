@@ -117,7 +117,7 @@
 
 
 </div>
-<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="d3.v3.min.js"></script>
 <script>
     var like;
     function visualize(like) {
@@ -150,7 +150,7 @@
         var min_height = '700';
         var orientation = 'horizontal';
         var API_KEY = '3381729-f41882d53be3b6ccca98a6179';
-        var URL = "http://pixabay.com/api/?key=" + API_KEY + "&image_type=" + phototype +
+        var URL = "https://pixabay.com/api/?key=" + API_KEY + "&image_type=" + phototype +
                 '&safesearch=' + safesearch + '&order=' + order + '&per_page=' + maxresult + '&min_height=' + min_height +
                 '&orientation=' + orientation;
 
@@ -202,7 +202,6 @@
 //            console.log(formatted[c][0][c]);
 
             });
-            console.log(JSON.stringify(formatted));
             root = JSON.parse(JSON.stringify(formatted));
             var node = svg.selectAll(".node")
                     .data(bubble.nodes(classes(root))
@@ -237,7 +236,6 @@
 
             return formatted;
         });
-        console.log(formatted);
 
         // Returns a flattened hierarchy containing all leaf nodes under the root.
         function classes(root) {
