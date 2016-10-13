@@ -19,22 +19,22 @@ Currently used API:
 * __Pixabay__ : https://pixabay.com/api/docs/
 * __Pixlr__ : https://apps.pixlr.com/developer/api/
 
-You may access the site at - __From HW3 Onwards__:
+You may access the site - __From Firebase Server__ at:
 * https://bggram-d9ba0.firebaseapp.com/
 
 Github hosted website:
 * https://bluedrag.github.io/BGgram/
 
-The github repository is located at
+The github repository is located at:
 * https://github.com/bluedrag/BGgram
 
-The github releases are located at
+The github releases are located at:
 * https://github.com/bluedrag/BGgram/releases
 
 
-##HW3 Scenarios
+##Scenarios
 
-####__Implemented: Scenario one and two__
+####__Implemented: All Scenarios__
 
 ###__Scenario one - Using Firebase__: 
 * The user will have the ability to login to his account using an account he registers, which will save the information in the Firebase database.
@@ -55,14 +55,14 @@ User can search any image they want on the browse page. If they like an image, t
 * Safesearch is always on.
 * Browse page is limited to MAX of 12 images. No page functionality(pg 1, pg 2, etc.)
 
-
 ###__Scenario three - Data manipulation with D3.js__:
-* The user will have the ability to see the most uploaded photos.
-* The browse page will have toggle abilities between different types of views
-* Pictures will be browseable using tags
+* The user has have the ability to see data visualizations containing information about most liked photos and photos with most views.
+* The browse page has have toggle abilities between different types of views.
+* Pictures are browseable using tags.
+* Photos have a like button and BGgram photos now have a theme type.
 
-###__Scenario four - View and search for images__:
-* The user will have the ability to search public photos (including other users’ photos) from the Firebase database as well as from the pixabay api.
-* Browse page will feature a toggle between gallery mode and normal mode. Normal mode will have __expanded__ div on hover.
-
+###__Scenario four - Gallery View__:
+* Browse page features a toggle between Pixlr gallery mode or BGgram gallery mode.
+* Photos are searchable between these two different galleries. 
+* Normal mode have __expanded__ div on hover.
 
