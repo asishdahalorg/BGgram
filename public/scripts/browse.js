@@ -132,14 +132,14 @@ $(function () {
     });
       
     $("#pixabaysearch").keyup(function (event) {
-        if(fromPxlr){
+        // if(fromPxlr){
             if(event.keyCode == 13){
                 $("#searchimagebtn").click();
             }
             if ($("#pixabaysearch").val().length > 2) {
                 $("#searchimagebtn").click();
             }
-        }
+        // }
     });
     // Calls show photo with inputed theme.
     function bggramFunction(){

@@ -34,7 +34,7 @@ The github releases are located at
 
 ##HW3 Scenarios
 
-####__Implemented: Scenario one and two and four__
+####__Implemented: Scenario one, two, three and four__
 
 ###__Scenario one - Using Firebase__: 
 * The user will have the ability to login to his account using an account he registers, which will save the information in the Firebase database.
@@ -57,11 +57,13 @@ User can search any image they want on the browse page. If they like an image, t
 
 
 ###__Scenario three - Data manipulation with D3.js__:
-* The user will have the ability to see the most uploaded photos.
-* The browse page will have toggle abilities between different types of views
-* Pictures will be browseable using tags
+* The user has have the ability to see the most liked photos and photos with most views.
+* The browse page has have toggle abilities between different types of views.
+* Pictures are browseable using tags.
 
 ###__Scenario four - View__:
-* Browse page will feature a toggle between gallery mode and normal mode. Normal mode will have __expanded__ div on hover.
+* Browse page features a toggle between Pixlr gallery mode or BGgram gallery mode.
+* Normal mode have __expanded__ div on hover.
+* Photos have like buttons.
 
 
