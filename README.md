@@ -19,22 +19,22 @@ Currently used API:
 * __Pixabay__ : https://pixabay.com/api/docs/
 * __Pixlr__ : https://apps.pixlr.com/developer/api/
 
-You may access the site at - __From HW3 Onwards__:
+You may access the site - __From Firebase Server__ at:
 * https://bggram-d9ba0.firebaseapp.com/
 
 Github hosted website:
 * https://bluedrag.github.io/BGgram/
 
-The github repository is located at
+The github repository is located at:
 * https://github.com/bluedrag/BGgram
 
-The github releases are located at
+The github releases are located at:
 * https://github.com/bluedrag/BGgram/releases
 
 
-##HW3 Scenarios
+##Scenarios
 
-####__Implemented: Scenario one, two, three and four__
+####__Implemented: All Scenarios__
 
 ###__Scenario one - Using Firebase__: 
 * The user will have the ability to login to his account using an account he registers, which will save the information in the Firebase database.
@@ -55,15 +55,14 @@ User can search any image they want on the browse page. If they like an image, t
 * Safesearch is always on.
 * Browse page is limited to MAX of 12 images. No page functionality(pg 1, pg 2, etc.)
 
-
 ###__Scenario three - Data manipulation with D3.js__:
 * The user has have the ability to see the most liked photos and photos with most views.
 * The browse page has have toggle abilities between different types of views.
 * Pictures are browseable using tags.
+* Photos have a like button.
 
-###__Scenario four - View__:
+###__Scenario four - Gallery View__:
 * Browse page features a toggle between Pixlr gallery mode or BGgram gallery mode.
 * Normal mode have __expanded__ div on hover.
 * Photos have like buttons.
-
 
