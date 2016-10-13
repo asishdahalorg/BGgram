@@ -63,6 +63,6 @@ User can search any image they want on the browse page. If they like an image, t
 
 ###__Scenario four - Gallery View__:
 * Browse page features a toggle between Pixlr gallery mode or BGgram gallery mode.
-* Photos are searchable between this two different galleries. 
+* Photos are searchable between these two different galleries. 
 * Normal mode have __expanded__ div on hover.
 
