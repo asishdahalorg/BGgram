@@ -4,7 +4,7 @@ Welcome to BGgram, home of the best and most user friendly online image
 and background editor. Choose your like from millions of trending images, 
 and edit it to your desires.
 
-The website is held on the `public/` directory.
+The website is held on the `public/` directory. 
 
 The main entry point is `index.html`.
 All other html files are in `html/`.
