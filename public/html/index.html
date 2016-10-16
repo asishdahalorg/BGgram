@@ -1,35 +1,16 @@
 <html>
 	<head>
-		<title>BGgram|About Us</title>
-		<link href="css/header2.css" type="text/css" rel="stylesheet">
-		<link href="css/aboutus.css" type="text/css" rel="stylesheet">
-		<script src="jquery.min.js"></script>
-		<script src="scripts/login.js"></script>
-		<script>
-			"use strict";
-			// Script to use DOM history manipulation on the about us page. 
-           $(function(){   
-            //This moves around the menu links. 
-           	$(".leftMenu a").click(function(){
-           		var target = $(this).attr("data-class");
-           		//Adding to history
-           		history.pushState({"dataClass":target},"");
-           		$(".infoContainer").hide();
-           		$(target).show();
-           	});
-           	//This moves using history (back and forward browser buttons).
-           	$(window).on('popstate', function() {
-		      if(history.state!=null){
-           		$(".infoContainer").hide();
-		        $(history.state.dataClass).show();
-		      }
-		    });
-		    //Adding to history first page on about us (About Us)
-            history.pushState({"dataClass":".about"},"");
-           });
-		</script>
+		<title>BGgram|Home</title>
+		<meta charset="utf-8">
 
-		<!-- External -->
+		<!--Local-->
+		<link href="../css/header2.css" type="text/css" rel="stylesheet">
+		<script src="../jquery.min.js"></script>
+		<script src="../scripts/carousel_js.js"></script>
+		<script src="../scripts/login.js"></script>
+		<link href="../css/index.css" type="text/css" rel="stylesheet">
+
+		<!--External-->
 		<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
@@ -112,28 +93,30 @@
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
-		<div class="container">
-			<div class ="outsideMenu">
-				<div class="leftMenu">
-					<!-- Menu links -->
-					<a href="javascript://" data-class=".about">About Us</a>
-					<a href="javascript://" data-class=".mission">Mission</a>
-					<a href="javascript://" data-class=".copyRights">Copy Rights</a>
-				</div>
-			</div>
-			<div class ="outsideInfo">
-				<!-- Each menu page -->
-				<div class="infoContainer about" style="display:block">
-					<div>Welcome to BGgram background editor where you can upload or choose any image or gif and change it to your taste. Images can be use as a background for any devise or they can be share to your friends so they can use it or even make additional changes.</div>
-				</div>
-				<div class="infoContainer mission" style="display:none;">
-					<div>Mission<br/>Our mission is to....</div>
-				</div>
-				<div class="infoContainer copyRights" style="display:none;">
-					<div>Copy Rights<br/>Our Copy Rights are ...</div>
-				</div>
+	<div class="container1">
+		<div class="photoContainer">
+			<!-- Carousel Container -->
+			<div id="carousel" class="carousel" data-ride="carousel">
+				<div class="img">
+					<div class = "info">
+						<div class="infotext">Welcome to BGgram, where you can edit photos <br/>to create your own backgrounds.</div>
+					</div>
+					<!-- Lef/Right carousel buttons -->
+					<div class = "buttons">
+						<button class="left"><</button>
+						<button class="right">></button>
+					</div>
+					<!--Filled by jquery, Big slideshow  -->
+					<div class="slideShow" role="listbox"></div>
+				 </div>
 			</div>
 		</div>
+		<div class="thumbnails">
+			<!--Filled by jquery, Small thumnails  -->
+			<div class= "thumbnailsSingle" style="display:inline-flex;">
+			</div>
+		</div>
+	</div>
 		<div class="footer">
 		</div>
 	</body>

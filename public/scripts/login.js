@@ -15,7 +15,7 @@ $(function ()
     };
     //  initialize app
     firebase.initializeApp(config);
-initialized = true;
+    initialized = true;
 
     // var provider = new firebase.auth.GoogleAuthProvider();
     // provider.addScope('https://www.googleapis.com/auth/plus.login');
@@ -29,31 +29,6 @@ initialized = true;
     const username = $('#username');
     const loggedoutmenu = $('#login-dp');
     const logininvite = $('#logininfo');
-
-    btnlogoff.addEventListener('click', function () {
-        console.log('here');
-        firebase.auth().signOut();
-        $(document).ready(function () {
-            window.location.reload();
-        });
-    });
-
-    btnlogin.addEventListener('click', function () {
-        const email = txtEmail.value;
-        const pass = txtpass.value;
-        const auth = firebase.auth();
-
-        const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.then(function () {
-            $(document).ready(function () {
-                window.location.reload();
-            });
-        });
-        promise.catch(function (error) {
-            console.log(error);
-        });
-    });
-
 
     var logoffmenu = React.createClass({
 
@@ -129,24 +104,48 @@ initialized = true;
             )
         }
     });
+
+    // Added the clicks inside because they were not working outside, now
+    // all of the code from this js can be use in all pages. -Kimberly
+
     // Upon login/logoff, do these things
     firebase.auth().onAuthStateChanged(function (User) {
         var logmenu = document.getElementById('logmenu');
         if (User) {
             user = User;
-            // console.log(User);
             ReactDOM.render(
                 React.createElement(loginmenu, {username: User.email}),
                 logmenu
             );
-            // console.log(logmenu);
+            $("#userlogoff").click(function () {
+                console.log('here');
+                firebase.auth().signOut();
+                $(document).ready(function () {
+                    window.location.reload();
+                });
+            });
 
         } else {
-            // console.log(User);
+            console.log(User);
             ReactDOM.render(
                 React.createElement(logoffmenu),
                 logmenu
             );
+            $("#userlogin").click(function () {
+                const email =  $("#useremail").val();
+                const pass = $("#userpass").val();
+                const auth = firebase.auth();
+
+                const promise = auth.signInWithEmailAndPassword(email, pass);
+                promise.then(function () {
+                    $(document).ready(function () {
+                        window.location.reload();
+                    });
+                });
+                promise.catch(function (error) {
+                    console.log(error);
+                });
+            });
         }
     });
 

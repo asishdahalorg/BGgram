@@ -1,14 +1,13 @@
-
 "use strict";
-var dataArray = [{"src":"images/home1.jpg","alt":"photo1"},
-				 {"src":"images/home2.jpg","alt":"photo2"},
-				 {"src":"images/home3.jpg","alt":"photo3"},
-				 {"src":"images/home4.jpg","alt":"photo4"},
-				 {"src":"images/home5.jpg","alt":"photo5"},
-				 {"src":"images/home6.jpg","alt":"photo6"},
-				 {"src":"images/home7.jpg","alt":"photo7"},
-				 {"src":"images/home8.jpg","alt":"photo8"},
-				 {"src":"images/home9.jpg","alt":"photo9"}
+var dataArray = [{"src":"../images/home1.jpg","alt":"photo1"},
+				 {"src":"../images/home2.jpg","alt":"photo2"},
+				 {"src":"../images/home3.jpg","alt":"photo3"},
+				 {"src":"../images/home4.jpg","alt":"photo4"},
+				 {"src":"../images/home5.jpg","alt":"photo5"},
+				 {"src":"../images/home6.jpg","alt":"photo6"},
+				 {"src":"../images/home7.jpg","alt":"photo7"},
+				 {"src":"../images/home8.jpg","alt":"photo8"},
+				 {"src":"../images/home9.jpg","alt":"photo9"}
 				];
 $(function(){
 	//Initialazing the slide show, adding photos.

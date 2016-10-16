@@ -15,6 +15,9 @@ $(function () {
             initializePage();
         }
     },1000);
+
+
+
     // Initializes the user info
     function initializePage(){
         firebase.auth().onAuthStateChanged(function (user1) {
@@ -27,9 +30,11 @@ $(function () {
             });
             var retriveData;
         });
-        // Initially finds public photos no matter there theme.
+        // Initially finds public photos no matter theire theme.
         showPhoto("public", null);
     }
+
+
     // Finds photos and show them
     function showPhoto(privacy, theme1){
             retriveData = firebase.database().ref('users/');
