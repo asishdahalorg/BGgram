@@ -1,6 +1,7 @@
 /**
  * Created by Asish on 9/26/2016.
 */
+var firebase;
 var user;
 var initialized = false;
 $(function ()

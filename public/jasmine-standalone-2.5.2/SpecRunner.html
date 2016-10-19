@@ -1,9 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>BGgram | Uploads</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner v2.5.2</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.5.2/jasmine_favicon.png">
+  <link rel="stylesheet" href="lib/jasmine-2.5.2/jasmine.css">
+
+  <script src="lib/jasmine-2.5.2/jasmine.js"></script>
+  <script src="lib/jasmine-2.5.2/jasmine-html.js"></script>
+  <script src="lib/jasmine-2.5.2/boot.js"></script>
+  <script type='text/javascript' src='lib/jasmine-jquery.js'></script>
+  <script type='text/javascript' src='../jquery.min.js'></script>
+  <script src="../react-bootstrap/lib/ModalHeader"></script>
+
+
+  <!-- include source files here... -->
+  <script src="../scripts/uploads.js"></script>
+
+
+  <!-- include spec files here... -->
+
+  <script src="../scripts/uploadsJasmine.js"></script>
+
+
+
+<!-- Cannot include an HTML file so this is the exact copy of uploads.html -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/searchbutton.css">
     <link rel="stylesheet" href="../css/uploads.css">
@@ -34,22 +56,6 @@
         pixlr.settings.method = 'GET';
         pixlr.settings.redirect = false;
     </script>
-
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-with-addons.js"></script>
-  <!-- // <script src="https://fb.me/react-dom-15.0.0.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
-  <link rel="shortcut icon" type="image/png" href="../jasmine-standalone-2.5.2/lib/jasmine-2.5.2/jasmine_favicon.png">
-  <link rel="stylesheet" href="../jasmine-standalone-2.5.2/lib/jasmine-2.5.2/jasmine.css">
-
-  <script src="../jasmine-standalone-2.5.2/lib/jasmine-2.5.2/jasmine.js"></script>
-  <script src="../jasmine-standalone-2.5.2/lib/jasmine-2.5.2/jasmine-html.js"></script>
-  <script src="../jasmine-standalone-2.5.2/lib/jasmine-2.5.2/boot.js"></script>
-  <script type='text/javascript' src='../jasmine-standalone-2.5.2/lib/jasmine-jquery.js'></script>
-  <script src="../scripts/uploadsJasmine.js"></script>
-
 
 </head>
 <body>
@@ -139,5 +145,7 @@
 <div class="row" id="galleryrow" data-index="1">
     <div><img id="loadingGif" src="../images/2.gif" style="margin-left:50%;"/></div>
 </div>
+
+<body>
 </body>
 </html>
