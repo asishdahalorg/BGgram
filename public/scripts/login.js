@@ -1,12 +1,13 @@
 /**
- * Created by Asish on 9/26/2016.
+* Created by Asish on 9/26/2016.
 */
-var firebase;
 var user;
 var initialized = false;
-$(function ()
-{
-    // This is used by most pages to login a user
+var firebase;
+$(function () {
+
+
+// This is used by most pages to login a user
     const config = {
         apiKey: "AIzaSyChi7CPreml7IQNQ5H42gfbybfs6538bY4",
         authDomain: "bggram-d9ba0.firebaseapp.com",
@@ -14,12 +15,12 @@ $(function ()
         storageBucket: "bggram-d9ba0.appspot.com",
         messagingSenderId: "50803099095"
     };
-    //  initialize app
+//  initialize app
     firebase.initializeApp(config);
     initialized = true;
 
-    // var provider = new firebase.auth.GoogleAuthProvider();
-    // provider.addScope('https://www.googleapis.com/auth/plus.login');
+// var provider = new firebase.auth.GoogleAuthProvider();
+// provider.addScope('https://www.googleapis.com/auth/plus.login');
     const txtEmail = document.getElementById('useremail');
     const txtpass = document.getElementById('userpass');
     const registerpass = document.getElementById('registerpass');
@@ -98,7 +99,10 @@ $(function ()
                             React.createElement('a', {href: 'uploads.html'}, 'Uploads')),
                         React.createElement('li', {className: 'divider'}),
                         React.createElement('li', null,
-                            React.createElement('button', {id: 'userlogoff', className: "btn btn-primary btn-block"}, 'Sign Off')
+                            React.createElement('button', {
+                                id: 'userlogoff',
+                                className: "btn btn-primary btn-block"
+                            }, 'Sign Off')
                         )
                     )
                 )
@@ -106,10 +110,10 @@ $(function ()
         }
     });
 
-    // Added the clicks inside because they were not working outside, now
-    // all of the code from this js can be use in all pages. -Kimberly
+// Added the clicks inside because they were not working outside, now
+// all of the code from this js can be use in all pages. -Kimberly
 
-    // Upon login/logoff, do these things
+// Upon login/logoff, do these things
     firebase.auth().onAuthStateChanged(function (User) {
         var logmenu = document.getElementById('logmenu');
         if (User) {
@@ -133,7 +137,7 @@ $(function ()
                 logmenu
             );
             $("#userlogin").click(function () {
-                const email =  $("#useremail").val();
+                const email = $("#useremail").val();
                 const pass = $("#userpass").val();
                 const auth = firebase.auth();
 
