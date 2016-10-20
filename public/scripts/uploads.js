@@ -2,6 +2,9 @@
     JavaScript for uploads.html, the main function is to upload a file to the firebase database and drive
     to then display this photo in a gallery where only available photos are the user's photos.
 */
+var ModalPanel,RenderedModalPanel;
+ var storage;
+ var saveVar, up;
 $(function ()
 { 
     var waitInterval = setInterval(function(){
@@ -11,8 +14,6 @@ $(function ()
             initializePage();
         }
     },1000);
-
-    var storage;
 /*
         For getting photos from firebase.
 */
@@ -104,24 +105,36 @@ $(function ()
         ModalPanel creates a React element that is displayed when the user clicks on uploads.
         After the users chooses the properties of the photo to be uploaded and clicks on the
         upload button, this then calls a function that updates the firebase database and storage.
-*/
-            var ModalPanel = React.createClass({
+*/var panelState = false;
+             ModalPanel = React.createClass({
                 displayName:"ModalPanel",
+                state:this.state,
                   getInitialState:function(){
                     return {showModal:false};
                   },
+                  statics:{
+                  getState:function(){
+                    return state.showModal;
+                    }
+                  },
                   close:function(){
+                    panelState = false;
                     this.setState({showModal:false});
                   },
                   open:function(){
+                    panelState = true;
                     this.setState({showModal:true});
                   },
+                  save:function(){
+                    this.setState({showModal:false});
+                    onSave();
+                  },
                   render: function(){
+                    var _this = this;
                     
                     return React.createElement("div",null,
                               React.createElement("button",{
-                              className: "upload",
-                              id:"uploadId",
+                              className: "btn btn-default upload1",
                               onClick:this.open
                             },"Upload a Photo"),
                              React.createElement(ReactBootstrap.Modal,{show:this.state.showModal,onHide:this.close},
@@ -156,16 +169,13 @@ $(function ()
                                     )
                                 ),
                                 React.createElement(ReactBootstrap.Modal.Footer,null,
-                                    React.createElement(ReactBootstrap.Button,{ 
-                                      bsStyle: "default",
-                                      bsSize: "large",
+                                    React.createElement("button",{ 
+                                      className: "btn btn-default cancel",
                                       onClick:this.close
                                     },"Cancel"),
-                                    React.createElement(ReactBootstrap.Button,{
-                                      className:"save", 
-                                      bsStyle: "primary",
-                                      bsSize: "large",
-                                      onClick:function(){onSave();}
+                                    React.createElement("button",{
+                                     className: "btn btn-default save",
+                                      onClick:this.save
                                     },"Upload")
                                 )
                                 ) 
@@ -174,15 +184,18 @@ $(function ()
                 }
             }); 
             var modalPanel = document.getElementById("modalPanel");
-            ReactDOM.render( React.createElement(ModalPanel),modalPanel);
+            RenderedModalPanel = ReactDOM.render( React.createElement(ModalPanel),modalPanel);
             var onUploads = true;
 
-            function onSave(){
+
+
+            saveVar = function onSave(){
+
                 var privacy =  $("input[name='privacy']:checked").val();
                 var theme =  $("input[name='type']:checked").val();
 
                 $(".imageOuter").remove();
-                uploadPhoto(privacy, theme);
+                up =  uploadPhoto(privacy, theme);
             }
 
             // This is to make the file chooser button look better.
