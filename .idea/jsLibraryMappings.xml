@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{bootstrap, d3.v3, jquery}" />
+    <file url="PROJECT" libraries="{bootstrap, d3.v3, firebase, firebase-app, firebase-auth, firebase-database, firebase-storage, jquery, react, react-dom}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
   </component>
 </project>
