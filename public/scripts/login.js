@@ -4,6 +4,7 @@
 var user;
 var initialized = false;
 var firebase;
+var finmenu;
 $(function () {
 
 
@@ -118,7 +119,7 @@ $(function () {
         var logmenu = document.getElementById('logmenu');
         if (User) {
             user = User;
-            ReactDOM.render(
+            finmenu = ReactDOM.render(
                 React.createElement(loginmenu, {username: User.email}),
                 logmenu
             );
@@ -132,7 +133,7 @@ $(function () {
 
         } else {
             console.log(User);
-            ReactDOM.render(
+            finmenu = ReactDOM.render(
                 React.createElement(logoffmenu),
                 logmenu
             );
@@ -155,3 +156,128 @@ $(function () {
     });
 
 });
+//
+//
+// "use strict";
+// var config = {
+//     apiKey: "AIzaSyChi7CPreml7IQNQ5H42gfbybfs6538bY4",
+//     authDomain: "bggram-d9ba0.firebaseapp.com",
+//     databaseURL: "https://bggram-d9ba0.firebaseio.com/",
+//     storageBucket: "bggram-d9ba0.appspot.com",
+//     messagingSenderId: "50803099095"
+// };
+// var firebase;
+//
+// var Loginmenu = React.createClass({
+//
+//     render: function () {
+//         return (
+//             React.createElement('li', {className: "dropdown"},
+//                 React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
+//                     React.createElement("b", null, this.props.username),
+//                     React.createElement("span", {className: 'caret'})
+//                 ),
+//                 React.createElement('ul', {className: 'dropdown-menu', role: 'menu'},
+//                     React.createElement('li', null,
+//                         React.createElement('a', {href: 'uploads.html'}, 'Uploads')),
+//                     React.createElement('li', {className: 'divider'}),
+//                     React.createElement('li', null,
+//                         React.createElement('button', {
+//                             id: 'userlogoff',
+//                             className: "btn btn-primary btn-block"
+//                         }, 'Sign Off')
+//                     )
+//                 )
+//             )
+//         );
+//     }
+// });
+//
+// var Logoffmenu = React.createClass({
+//
+//     render: function () {
+//         return (
+//             React.createElement('li', {className: "dropdown"},
+//                 React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
+//                     React.createElement("b", null, 'Login'),
+//                     React.createElement("span", {className: 'caret'})
+//                 ),
+//                 React.createElement('ul', {className: "dropdown-menu"},
+//                     React.createElement('li', null,
+//                         React.createElement('div', {className: "row"},
+//                             React.createElement('div', {className: "col-md-12"},
+//                                 React.createElement('label', {className: "sr-only", htmlFor: "useremail"}),
+//                                 React.createElement('input', {
+//                                     className: "form-control",
+//                                     type: "email",
+//                                     id: "useremail",
+//                                     placeholder: "Email address",
+//                                     required: 'true'
+//                                 })
+//                                 // React.createElement('input',{className:"form-control",type:"email",id:"useremail", placeholder:"Email address", required:'true'},'Username / Email')
+//                             ),
+//                             React.createElement('div', {className: "col-md-12"},
+//                                 React.createElement('label', {className: "sr-only", htmlFor: "userpass"}),
+//                                 React.createElement('input', {
+//                                     className: "form-control",
+//                                     type: "password",
+//                                     id: "userpass",
+//                                     placeholder: "Password",
+//                                     required: 'true'
+//                                 })
+//                             ),
+//                             React.createElement('div', {className: "col-md-12"},
+//                                 React.createElement('button', {
+//                                     className: "btn btn-primary btn-block",
+//                                     id: "userlogin",
+//                                     type: "submit"
+//                                 }, 'Sign in')
+//                             ),
+//                             React.createElement('div', {className: "bottom text-center"},
+//                                 React.createElement('a', {href: 'register.html'},
+//                                     React.createElement('b', null, 'Register')
+//                                 )
+//                             )
+//                         )
+//                     )
+//                 )
+//             )
+//         );
+//     }
+// });
+//
+// var LoginApp = React.createClass({
+//     displayName:"LoginApp",
+//     state:this.state,
+//     fb: function () {
+//         this.setState({firebase: firebase.initializeApp(config)})
+//     },
+//     checkLogin: function () {
+//         this.fb();
+//         this.state.firebase.auth().onAuthStateChanged(function (User) {
+//             if (User) {
+//                 this.setState({loggedin: true});
+//                 this.setState({user: User.email});
+//             }
+//             else {
+//                 this.setState({loggedin: false});
+//                 this.setState({user: null});
+//             }
+//         });
+//     },
+//     render: function () {
+//         this.checkLogin();
+//         if (this.state.loggedin == true){
+//             return(
+//                 React.createElement(Loginmenu,{username:this.state.user})
+//             );
+//         }
+//         else{
+//             return(
+//                 React.createElement(Logoffmenu)
+//             );
+//         }
+//     }
+// });
+//
+// ReactDOM.render(React.createElement(LoginApp), document.createElement("div"));
