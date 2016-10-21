@@ -99,7 +99,6 @@ $(function ()
 
         });
     }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
         For uploading a photo to firebase.
         ModalPanel creates a React element that is displayed when the user clicks on uploads.
@@ -110,28 +109,26 @@ $(function ()
                 displayName:"ModalPanel",
                 state:this.state,
                   getInitialState:function(){
-                    return {showModal:false};
+                        return {showModal:false};
                   },
                   statics:{
-                  getState:function(){
-                    return state.showModal;
+                    getState:function(){
+                        return state.showModal;
                     }
                   },
                   close:function(){
-                    panelState = false;
-                    this.setState({showModal:false});
+                        panelState = false;
+                        this.setState({showModal:false});
                   },
                   open:function(){
-                    panelState = true;
-                    this.setState({showModal:true});
+                        panelState = true;
+                        this.setState({showModal:true});
                   },
                   save:function(){
-                    this.setState({showModal:false});
-                    onSave();
+                        this.setState({showModal:false});
+                        onSave();
                   },
                   render: function(){
-                    var _this = this;
-                    
                     return React.createElement("div",null,
                               React.createElement("button",{
                               className: "btn btn-default upload1",
@@ -185,17 +182,14 @@ $(function ()
             }); 
             var modalPanel = document.getElementById("modalPanel");
             RenderedModalPanel = ReactDOM.render( React.createElement(ModalPanel),modalPanel);
-            var onUploads = true;
 
 
-
-            saveVar = function onSave(){
-
+            function onSave(){
                 var privacy =  $("input[name='privacy']:checked").val();
                 var theme =  $("input[name='type']:checked").val();
 
                 $(".imageOuter").remove();
-                up =  uploadPhoto(privacy, theme);
+                uploadPhoto(privacy, theme);
             }
 
             // This is to make the file chooser button look better.

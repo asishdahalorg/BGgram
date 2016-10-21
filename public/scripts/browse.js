@@ -3,11 +3,11 @@
     This also gets images from firebase database, which are images downloades from BGgram, and 
     displays them in the browse gallery if they are public.
 */
+var SearchClass, searchClass, fromPxlr ;
 $(function () {    
-
     var likesSet = {"food":0,"cars":0,"landscape":0,"people":0};
     var arr = new Set();
-    var fromPxlr = false;
+    fromPxlr = false;
     // Without the interval the page does not start with the photos
     var waitInterval = setInterval(function()
     {
@@ -123,37 +123,66 @@ $(function () {
                 });     
             });   
     }
-    // BGGram photos or PXLR photos for search.
-    $('.dropdown-menu a.pixlr').on("click", function(e){
-            fromPxlr = true;
-    });
-    $('.dropdown-menu a.bggram').on("click", function(e){
-            fromPxlr = false;
-    });
-    // Search button click.
-    $("#searchimagebtn").click(function () {
-         if(fromPxlr)pxlrFunciton();
-         else
-            bggramFunction();
-    });
-      
-    // While writing on search input, it searches.
-    $("#pixabaysearch").keyup(function (event) {
-            if(event.keyCode == 13){
-                $("#searchimagebtn").click();
-            }
-            if ($("#pixabaysearch").val().length > 2) {
-                $("#searchimagebtn").click();
-            }
-    });
 
-    // Calls showPhoto() to find the photo with the inputed theme.
-    // Shows photo from BGgram.
-    function bggramFunction(){
-      $(".imageOuter").remove();
-       var theme = $("#pixabaysearch").val();
-       showPhoto("public", theme);
+/*
+    SearchClass is in charge of the Search button and Serch properties.
+    Depending on weather the current search property is for PIXLR or 
+    from BGgram, it perferms the search. Search input onKeyUp is set to perform a search
+    if there is at least 3 letters or more in the input, the interval is to prevent doing
+    a search too many times.
+*/
+       var keyTimer = null;
+SearchClass = React.createClass({
+    displayName:"SearchClass",
+    keyUp:function(){
+        if($("#pixabaysearch").val().length>2){
+            clearInterval(keyTimer)
+            keyTimer = setInterval(function(){
+                $("#searchimagebtn").click();
+                console.log("Searching....");
+                clearInterval(keyTimer);
+            },1000);
+
+        }
+        else{
+            clearInterval(keyTimer);
+        }
+    },
+    searchClick:function(){
+        if(fromPxlr)pxlrFunciton()
+        else{
+            $(".imageOuter").remove();
+           var theme = $("#pixabaysearch").val();
+           showPhoto("public", theme);
+        }
+    },
+    fromPIXLR:function(){
+        fromPxlr = true;
+    },
+    fromBGgram:function(){
+        fromPxlr = false;
+    },
+    render:function(){
+       return React.createElement("div",null,
+                React.createElement("input", {type:"text", className:"from-control", 
+                                              id:"pixabaysearch", placeholder:"Search",onKeyUp:this.keyUp}),
+                React.createElement("button", {className:"btn btn-default submit", id:"searchimagebtn",
+                                              onClick:this.searchClick},"Submit"),
+                React.createElement("div", {className:"btn-group"},
+                    React.createElement("button", {type:"button", className:"btn btn-default dropdown-toggle", "data-toggle":"dropdown"},
+                                                  "Search Options  ", React.createElement("span", {className:"caret"})),
+                    React.createElement("ul", {className:"dropdown-menu", role:"menu"},
+                        React.createElement("li",null,
+                            React.createElement("a", {className:"bggram", href:"#", onClick: this.fromBGgram}," Photos From BGgram "),
+                            React.createElement("a", {className:"pixlr", href:"#", onClick: this.fromPIXLR}," Photos From PIXLR ")
+                        )
+                    )
+                )
+            );
     }
+});
+var submitButton = document.getElementById("buttonHolder");
+searchClass = ReactDOM.render( React.createElement(SearchClass),submitButton);
 
     // Shows photo from pxlr.
     function pxlrFunciton(){

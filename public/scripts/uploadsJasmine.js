@@ -7,8 +7,6 @@ $(function(){
 
 describe("ModalPanel", function() {
 	TestUtils = React.addons.TestUtils;
-	  // beforeEach(function(){
-	  // });
 	it("Load Button Opens The Modal Panel", function () {
        $(".upload1").click();
 		expect(
@@ -17,27 +15,31 @@ describe("ModalPanel", function() {
         
 	});
  	it("Close Button Closes Modal Panel", function () {
+ 		RenderedModalPanel.open();
    		$(".cancel").click();
 		expect(
 			RenderedModalPanel.state.showModal
 		).toBe(false);  
 	});
- 	beforeEach(function(){
-   		spyOn(RenderedModalPanel,'save').and.callThrough()
-	  });
-	it("State should be false and should call the save function after the clicking save, which calls onSave()", function () {	  
+
+
+	it("Modal panel should be closed after clicking save", function () {	
+		RenderedModalPanel.open();  
 	   	$(".save").click();
    		expect(
 			RenderedModalPanel.state.showModal
 		).toBe(false); 
-
-		expect(
-			RenderedModalPanel.save
-
-		).toHaveBeenCalled();
+	});
+	it("Should call the save function after clicking save, which calls onSave()", function () {	
+        spyOn(RenderedModalPanel, "save");
+	    RenderedModalPanel.save();
+		expect(RenderedModalPanel.save).toHaveBeenCalled();
 	});
 
  });
+
+
+
 });
 
 
