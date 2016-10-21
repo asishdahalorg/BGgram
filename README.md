@@ -23,7 +23,7 @@ You may access the site - __From Firebase Server__ at:
 * https://bggram-d9ba0.firebaseapp.com/
 
 Github hosted website:
-* https://bluedrag.github.io/BGgram/
+* https://bluedrag.github.io/BGgram/public/html/index.html 
 
 The github repository is located at:
 * https://github.com/bluedrag/BGgram

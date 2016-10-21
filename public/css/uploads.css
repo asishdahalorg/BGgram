@@ -19,8 +19,8 @@ body {
 .fileInput {
     color: #333;
     display: inline !important;
-    height: 27px;
-    width: 195px;
+    height: 24px;
+    width: 197px;
 }
 .upload, .topFile {
     background: #fefefe none repeat scroll 0 0;
@@ -28,8 +28,8 @@ body {
     border-style: solid;
     border-width: 1px;
     color: #333;
-    height: 33px;
-    width: 95px;
+    height: 28px;
+    width: 97px;
 }
 .upload:hover, .topFile:hover {
     background: #e3e3e3 none repeat scroll 0 0;
@@ -48,4 +48,14 @@ body {
 .hovereffect {
     border-radius: 3px;
     margin: 0.5%;
+}
+.radioLabel {
+    padding-left: 15px;
+}
+.modal-container {
+    position: relative;
+    float: right;
+}
+.modal-container .modal, .modal-container .modal-backdrop {
+    position: absolute;
 }
