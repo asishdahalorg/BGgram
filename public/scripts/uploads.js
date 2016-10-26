@@ -2,7 +2,7 @@
     JavaScript for uploads.html, the main function is to upload a file to the firebase database and drive
     to then display this photo in a gallery where only available photos are the user's photos.
 */
-var ModalPanel,RenderedModalPanel;
+ var ModalPanel,RenderedModalPanel;
  var storage;
  var saveVar, up;
 $(function ()
@@ -23,20 +23,19 @@ $(function ()
         // Get a reference to the storage service, which is used to create references in your storage bucket
             storage = firebase.storage();
             var arr = new Set(); 
-            var userData = firebase.database().ref('users/' + user.uid);
-            userData.update
-            ({
-                username: user.displayName,
-                email: user.email,
-                profile_picture: ""
-            });
-            var retriveData = firebase.database().ref('users/');
-
+            // var retriveData = firebase.database().ref('users/');
 
             // Function to load images to a set, calls get photo to display photos after loading images to set.
             function loadImgs(){
                 arr = new Set();
-                retriveData.on('value', function (snapshot) {
+
+
+            $.ajax({url: "http://localhost:3000/static/html/uploads.html",
+                type: 'PUT'});
+            
+
+
+                // retriveData.on('value', function (snapshot) {
                     snapshot.forEach(function (childSnapshot) {
                         // Key will be the UID
                         // This looks for photo in firebase database if they are from user and adds it to a set.
@@ -56,7 +55,7 @@ $(function ()
                             getPhotos();
                         }
                     });
-                });
+                // });
             }
             loadImgs();
 
