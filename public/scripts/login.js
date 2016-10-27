@@ -5,6 +5,7 @@ var user;
 var initialized = false;
 var firebase;
 var finmenu;
+var ModalPanel,RenderedModalPanel;
 $(function () {
 
 
@@ -32,6 +33,83 @@ $(function () {
     const username = $('#username');
     const loggedoutmenu = $('#login-dp');
     const logininvite = $('#logininfo');
+
+    var panelState = false;
+    ModalPanel = React.createClass({
+        displayName:"ModalPanel",
+        state:this.state,
+        getInitialState:function(){
+            return {showModal:false};
+        },
+        statics:{
+            getState:function(){
+                return state.showModal;
+            }
+        },
+        close:function(){
+            panelState = false;
+            this.setState({showModal:false});
+        },
+        open:function(){
+            panelState = true;
+            this.setState({showModal:true});
+        },
+        save:function(){
+            this.setState({showModal:false});
+            onSave();
+        },
+        render: function(){
+            return React.createElement("div",null,
+                React.createElement("button",{
+                    className: "btn btn-default upload1",
+                    onClick:this.open
+                },"Upload a Photo"),
+                React.createElement(ReactBootstrap.Modal,{show:this.state.showModal,onHide:this.close},
+                    React.createElement(ReactBootstrap.Modal.Header,null,
+                        React.createElement("b",null,"Upload a New Photo"),
+                        React.createElement("br")),
+                    React.createElement(ReactBootstrap.Modal.Body,null,
+                        React.createElement("div",null,
+                            React.createElement("b",null,"Privacy:"),
+                            React.createElement("br"),
+                            React.createElement("label",{className:"radioLabel"},"Private ",
+                                React.createElement("input",{type:"radio",name:"privacy",value:"private"})
+                            ),
+                            React.createElement("label",{className:"radioLabel"},"Public ",
+                                React.createElement("input",{type:"radio",name:"privacy",value:"public"})
+                            ),
+                            React.createElement("br",null),
+                            React.createElement("b",null,"Type:"),
+                            React.createElement("br"),
+                            React.createElement("label",{className:"radioLabel"},"Food ",
+                                React.createElement("input",{type:"radio",name:"type",value:"food"})
+                            ),
+                            React.createElement("label",{className:"radioLabel"},"Landscape ",
+                                React.createElement("input",{type:"radio",name:"type",value:"landscape"})
+                            ),
+                            React.createElement("label",{className:"radioLabel"},"Cars ",
+                                React.createElement("input",{type:"radio",name:"type",value:"cars"})
+                            ),
+                            React.createElement("label",{className:"radioLabel"},"People ",
+                                React.createElement("input",{type:"radio",name:"type",value:"people"})
+                            )
+                        )
+                    ),
+                    React.createElement(ReactBootstrap.Modal.Footer,null,
+                        React.createElement("button",{
+                            className: "btn btn-default cancel",
+                            onClick:this.close
+                        },"Cancel"),
+                        React.createElement("button",{
+                            className: "btn btn-default save",
+                            onClick:this.save
+                        },"Upload")
+                    )
+                )
+            );
+
+        }
+    });
 
     var logoffmenu = React.createClass({
 
@@ -87,15 +165,34 @@ $(function () {
     });
 
     var loginmenu = React.createClass({
+        state:this.state,
+        getInitialState:function(){
+            return {profile:"blah"};
+        },
+
+        get_profile_pic:function(){
+            this.setState({profile:this.props.username});
+        },
 
         render: function () {
             return (
                 React.createElement('li', {className: "dropdown"},
                     React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
-                        React.createElement("b", null, this.props.username),
+                        React.createElement("b", null,this.state.profile),
                         React.createElement("span", {className: 'caret'})
                     ),
                     React.createElement('ul', {className: 'dropdown-menu', role: 'menu'},
+                        React.createElement('li', {className:"text-center"},
+                            React.createElement('label',{className: 'btn btn-default btn-file',style:{}},
+                            'Browse',
+                            React.createElement('input',{type:'file',style:{display:'none'}})),
+                            React.createElement('button', {
+                                onClick:this.get_profile_pic,
+                                id: 'uploadProfilePic',
+                                className: "btn btn-primary btn-block"
+                            }, 'Update Profile Picture')
+                        ),
+                        React.createElement('li', {className: 'divider'}),
                         React.createElement('li', null,
                             React.createElement('a', {href: 'uploads.html'}, 'Uploads')),
                         React.createElement('li', {className: 'divider'}),
@@ -131,8 +228,29 @@ $(function () {
                 });
             });
 
+            function uploadPhoto(privacy, theme) {
+                var photo = $(".fileInput")[0].files[0];
+                var storageRef = firebase.storage().ref("profile/" + user.uid);
+                var imagesRef = storageRef.child(photo.name);
+                updateDatabase(photo.name, privacy, theme);
+                imagesRef.put(photo).then(function(snapshot) {
+                    console.log('Uploaded Photo!');
+                    window.location.reload();
+                });
+            }
+
+            //Updating firebase database if a new photo has been uploaded.
+            function updateDatabase(name, privacy, theme) {
+                var userData = firebase.database().ref('users/' + user.uid + "/profile/" + name.replace(/\./g, "_"));
+                userData.set
+                ({
+                    Privacy: privacy,
+                    Theme: theme,
+                    Like: 0
+                });
+            }
+
         } else {
-            console.log(User);
             finmenu = ReactDOM.render(
                 React.createElement(logoffmenu),
                 logmenu
