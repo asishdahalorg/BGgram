@@ -1,9 +1,11 @@
 /**
  * Created by Asish on 10/19/2016.
  */
-var TestUtils;
+ 'use strict';
 
+var TestUtils;
 $(function() {
+    var Perf = require('react-addons-perf'); // ES5 with npm
     TestUtils = React.addons.TestUtils;
     describe("Various buttons", function () {
         it("has firebase", function () {

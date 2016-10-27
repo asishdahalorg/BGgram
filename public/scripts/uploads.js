@@ -2,9 +2,10 @@
     JavaScript for uploads.html, the main function is to upload a file to the firebase database and drive
     to then display this photo in a gallery where only available photos are the user's photos.
 */
-var ModalPanel,RenderedModalPanel;
+ var ModalPanel,RenderedModalPanel;
  var storage;
  var saveVar, up;
+ var snapshot;
 $(function ()
 { 
     var waitInterval = setInterval(function(){
@@ -23,15 +24,7 @@ $(function ()
         // Get a reference to the storage service, which is used to create references in your storage bucket
             storage = firebase.storage();
             var arr = new Set(); 
-            var userData = firebase.database().ref('users/' + user.uid);
-            userData.update
-            ({
-                username: user.displayName,
-                email: user.email,
-                profile_picture: ""
-            });
             var retriveData = firebase.database().ref('users/');
-
 
             // Function to load images to a set, calls get photo to display photos after loading images to set.
             function loadImgs(){
@@ -202,13 +195,20 @@ $(function ()
             // new added photos.
             function uploadPhoto(privacy, theme) {
                 var photo = $(".fileInput")[0].files[0];
-                var storageRef = storage.ref("Photo/" + user.uid);
-                var imagesRef = storageRef.child(photo.name);
+                $.ajax({
+                    url: "/uploads",
+                    type: 'PUT',
+                    data: { fileInput: "photo"}});
+                // if(storage){
+                //     var storageRef = storage.ref("Photo/" + user.uid);
+                //     var imagesRef = storageRef.child(photo.name);
                 updateDatabase(photo.name, privacy, theme);
-                imagesRef.put(photo).then(function(snapshot) {
-                      console.log('Uploaded Photo!');
-                      window.location.reload();
-                    });
+                //     imagesRef.put(photo).then(function(snapshot) {
+                //           console.log('Uploaded Photo!');
+                //           window.location.reload();
+                //         });
+                // }
+                    window.location.reload();
             }
 
             //Updating firebase database if a new photo has been uploaded. 
