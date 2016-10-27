@@ -4,12 +4,14 @@
   "description": "Welcome to BGgram, home of the best and most user friendly online image\r and background editor. Choose your like from millions of trending images, \r and edit it to your desires.",
   "main": "nodeApp.js",
   "dependencies": {
+    "@google-cloud/storage": "^0.4.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "firebase": "^3.5.2",
+    "gcloud": "^0.37.0",
+    "jasmine-sinon": "^0.4.0",
     "react": "^15.3.2",
-    "react-addons-test-utils": "^15.3.2",
-    "jasmine-sinon": "^0.4.0"
+    "react-addons-test-utils": "^15.3.2"
   },
   "devDependencies": {},
   "scripts": {

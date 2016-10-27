@@ -5,6 +5,7 @@
  var ModalPanel,RenderedModalPanel;
  var storage;
  var saveVar, up;
+ var snapshot;
 $(function ()
 { 
     var waitInterval = setInterval(function(){
@@ -23,19 +24,12 @@ $(function ()
         // Get a reference to the storage service, which is used to create references in your storage bucket
             storage = firebase.storage();
             var arr = new Set(); 
-            // var retriveData = firebase.database().ref('users/');
+            var retriveData = firebase.database().ref('users/');
 
             // Function to load images to a set, calls get photo to display photos after loading images to set.
             function loadImgs(){
                 arr = new Set();
-
-
-            $.ajax({url: "http://localhost:3000/static/html/uploads.html",
-                type: 'PUT'});
-            
-
-
-                // retriveData.on('value', function (snapshot) {
+                retriveData.on('value', function (snapshot) {
                     snapshot.forEach(function (childSnapshot) {
                         // Key will be the UID
                         // This looks for photo in firebase database if they are from user and adds it to a set.
@@ -55,7 +49,7 @@ $(function ()
                             getPhotos();
                         }
                     });
-                // });
+                });
             }
             loadImgs();
 
@@ -201,13 +195,20 @@ $(function ()
             // new added photos.
             function uploadPhoto(privacy, theme) {
                 var photo = $(".fileInput")[0].files[0];
-                var storageRef = storage.ref("Photo/" + user.uid);
-                var imagesRef = storageRef.child(photo.name);
+                $.ajax({
+                    url: "/uploads",
+                    type: 'PUT',
+                    data: { fileInput: "photo"}});
+                // if(storage){
+                //     var storageRef = storage.ref("Photo/" + user.uid);
+                //     var imagesRef = storageRef.child(photo.name);
                 updateDatabase(photo.name, privacy, theme);
-                imagesRef.put(photo).then(function(snapshot) {
-                      console.log('Uploaded Photo!');
-                      window.location.reload();
-                    });
+                //     imagesRef.put(photo).then(function(snapshot) {
+                //           console.log('Uploaded Photo!');
+                //           window.location.reload();
+                //         });
+                // }
+                    window.location.reload();
             }
 
             //Updating firebase database if a new photo has been uploaded. 
