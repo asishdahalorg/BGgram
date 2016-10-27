@@ -23,7 +23,7 @@ app.get("'", function(req,res){
 });
 var port = process.env.PORT || 3000;
 
-app.use('/static', express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public'));
 
 var path = require('path');
 app.get('/',function(req,res){

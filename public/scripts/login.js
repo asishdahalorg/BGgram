@@ -167,13 +167,16 @@ $(function () {
     var loginmenu = React.createClass({
         state:this.state,
         getInitialState:function(){
-            return {profile:"blah"};
+            return {profile:this.props.username};
         },
 
         get_profile_pic:function(){
             this.setState({profile:this.props.username});
         },
 
+        get_username:function () {
+            return firebase.auth.username
+        },
         render: function () {
             return (
                 React.createElement('li', {className: "dropdown"},
