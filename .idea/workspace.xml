@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="132fd255-cb4d-4c59-ac61-d45db5031bc2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeApp.js" afterPath="$PROJECT_DIR$/nodeApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/uploads.html" afterPath="$PROJECT_DIR$/public/html/uploads.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/uploads.js" afterPath="$PROJECT_DIR$/public/scripts/uploads.js" />
-    </list>
+    <list default="true" id="132fd255-cb4d-4c59-ac61-d45db5031bc2" name="Default" comment="" />
     <ignored path="BGgram.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -37,6 +33,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -57,51 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="googlelogin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/googlelogin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uploads.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/uploads.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="nodeApp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/nodeApp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nodeApp.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nodeApp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="privkey.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/privkey.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="82">
+              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -117,11 +85,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="-162">
+              <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="firebase.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/firebase.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -471,12 +475,12 @@
       <workItem from="1477565490426" duration="5131000" />
       <workItem from="1477580364079" duration="221000" />
       <workItem from="1477584110924" duration="2282000" />
-      <workItem from="1478139535084" duration="584000" />
+      <workItem from="1478139535084" duration="3448000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210457000" />
+    <option name="totallyTimeSpent" value="213321000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="1" />
@@ -525,20 +529,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/browse.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/hover.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/uploads.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -567,20 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/firebase.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -710,18 +686,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1700">
           <caret line="100" column="21" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json" />
     <entry file="file://$PROJECT_DIR$/privkey.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -738,14 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/data_visual.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/nodeApp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -758,7 +719,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-          <folding />
+          <folding>
+            <marker date="1478140097731" expanded="true" signature="304:12369" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="352:467" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="379:461" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="475:522" ph="/*...*/" />
+            <marker date="1478140097731" expanded="true" signature="603:4474" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="659:4466" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="1055:2328" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="1150:2312" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="1214:2292" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="1240:1375" ph="//..." />
+            <marker date="1478140097731" expanded="true" signature="1608:2270" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="1689:2098" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="1782:2068" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="2454:4455" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="2499:4423" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="2661:4404" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="3517:3697" ph="//..." />
+            <marker date="1478140097731" expanded="true" signature="3764:4380" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="4091:4272" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="4475:4808" ph="/*...*/" />
+            <marker date="1478140097731" expanded="true" signature="4876:9254" ph="{&quot;displayName&quot;: &quot;ModalPanel&quot;...}" />
+            <marker date="1478140097731" expanded="true" signature="4998:5069" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="5097:5229" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="5138:5209" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="5265:5388" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="5423:5544" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="5579:5692" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="5730:9240" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="5850:5997" ph="{&quot;className&quot;: &quot;btn btn-default upload1&quot;...}" />
+            <marker date="1478140097731" expanded="true" signature="8700:8872" ph="{&quot;className&quot;: &quot;btn btn-default cancel&quot;...}" />
+            <marker date="1478140097731" expanded="true" signature="8949:9116" ph="{&quot;className&quot;: &quot;btn btn-default save&quot;...}" />
+            <marker date="1478140097731" expanded="true" signature="9452:9697" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="9809:9866" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="9882:9979" ph="//..." />
+            <marker date="1478140097731" expanded="true" signature="10029:10357" ph="{...}" />
+            <marker date="1478140097731" expanded="true" signature="10111:10231" ph="{&quot;url&quot;: &quot;/uploads&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -786,10 +784,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/data_visual.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="68" selection-start-line="3" selection-start-column="68" selection-end-line="3" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/firebase.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nodeApp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        <state relative-caret-position="82">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
           <folding />
         </state>
       </provider>
