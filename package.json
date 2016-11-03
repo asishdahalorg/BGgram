@@ -12,6 +12,7 @@
     "google-cloud": "^0.43.0",
     "googleapis": "^14.1.0",
     "jasmine-sinon": "^0.4.0",
+    "protobufjs": "^5.0.1",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2"
   },
@@ -20,7 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node nodeApp.js"
   },
-  "engines":{
+  "engines": {
     "node": "4.5.0",
     "npm": "2.15.9"
   },

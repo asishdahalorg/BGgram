@@ -33,7 +33,7 @@ app.set("view engine", "ejs");
 
 var path = require('path');
 app.get('/',function(req,res){
-	res.render('public/html/index.html');
+	res.render('index.html');
 });
 
 app.listen(app.get("port"), function(){
