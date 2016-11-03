@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="132fd255-cb4d-4c59-ac61-d45db5031bc2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeApp.js" afterPath="$PROJECT_DIR$/nodeApp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/uploads.html" afterPath="$PROJECT_DIR$/public/html/uploads.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/uploads.js" afterPath="$PROJECT_DIR$/public/scripts/uploads.js" />
     </list>
     <ignored path="BGgram.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +70,8 @@
       <file leaf-file-name="uploads.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/uploads.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+            <state relative-caret-position="391">
+              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -88,8 +90,8 @@
       <file leaf-file-name="nodeApp.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nodeApp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            <state relative-caret-position="252">
+              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -469,15 +471,15 @@
       <workItem from="1477565490426" duration="5131000" />
       <workItem from="1477580364079" duration="221000" />
       <workItem from="1477584110924" duration="2282000" />
-      <workItem from="1478139535084" duration="526000" />
+      <workItem from="1478139535084" duration="584000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210399000" />
+    <option name="totallyTimeSpent" value="210457000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
+    <frame x="-7" y="0" width="1370" height="735" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1366322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -754,8 +756,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/uploads.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        <state relative-caret-position="391">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -786,8 +788,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nodeApp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        <state relative-caret-position="252">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
           <folding />
         </state>
       </provider>

@@ -199,15 +199,7 @@ $(function ()
                     url: "/uploads",
                     type: 'PUT',
                     data: { fileInput: "photo"}});
-                // if(storage){
-                //     var storageRef = storage.ref("Photo/" + user.uid);
-                //     var imagesRef = storageRef.child(photo.name);
-                updateDatabase(photo.name, privacy, theme);
-                //     imagesRef.put(photo).then(function(snapshot) {
-                //           console.log('Uploaded Photo!');
-                //           window.location.reload();
-                //         });
-                // }
+                    updateDatabase(photo.name, privacy, theme);
                     window.location.reload();
             }
 
