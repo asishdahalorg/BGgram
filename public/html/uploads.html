@@ -22,14 +22,15 @@
 <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-messaging.js"></script>
+<script src="https://apis.google.com/js/client.js"></script>
 
 
-    
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-storage.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
@@ -129,7 +130,12 @@
     <div class="container-fluid search">
         <div class="pull-right">
             <button class="topFile">Browse</button>
-            <input class = "fileInput choose" type="file" ></input>
+            <form id="uploadForm" action = "/uploads" method = "POST" >
+                 <input class = "fileInput choose" id="uploads" name="uploads[]" type="file"/>
+                 <input id = "userId" name="userId" type = "hidden"/>
+                 <input id="typeId" name="typeId" type="hidden"/>
+                 <input id="privacyId" name="privacyId" type="hidden"/>
+            </form>
             <div class = "modal-container" id = "modalPanel"></div>
         </div>
 

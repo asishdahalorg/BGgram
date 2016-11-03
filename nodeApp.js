@@ -1,71 +1,80 @@
-'use strict'
+'use strict';
 
 var firebase = require("firebase/");
-var auth = require("firebase/auth");
-var database = require("firebase/database");
-var storage = require("firebase/storage");
-
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+
+var path = require('path');
+ var fs = require('fs');
+let busboy = require("connect-busboy");
+app.use(busboy());
+
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-    extended: true
+    extended: false
 }));
 
 firebase.initializeApp({
     serviceAccount: "privkey.json",
-    databaseURL: "https://bggram-d9ba0.firebaseio.com/"
+    databaseURL: "https://bggram-d9ba0.firebaseio.com/",
+    authDomain: "bggram-d9ba0.firebaseapp.com",
+    databaseURL: "https://bggram-d9ba0.firebaseio.com/",
+    storageBucket: "bggram-d9ba0.appspot.com",
+    messagingSenderId: "50803099095"
 });
-// var fireRef = firebase.database().ref('todos');
-app.get("'", function(req,res){
-	res.send("Hello");
-});
-var port = process.env.PORT || 3000;
 
-app.use('/static', express.static(__dirname + '/public'));
+app.set("port",(process.env.PORT || 5000));
+
+app.use(express.static(__dirname + '/public'));
+
+app.set('html',__dirname + '/html');
+app.set("view engine", "ejs");
 
 var path = require('path');
 app.get('/',function(req,res){
-	res.sendFile(path.join(__dirname,'html/','index.html'))
+	res.render('index.html');
 });
 
-app.listen(port, function(){
-console.log("Example");
+app.listen(app.get("port"), function(){
+console.log("In Server");
 });
 
-var gcloud = require('@google-cloud/storage')({
-	projectId: "bggram-d9ba0"
+var storage = require('@google-cloud/storage');
+var gcs = storage({
+  projectId: "bggram-d9ba0",
+  keyFilename: 'privkey.json'
 });
 
 
 
-app.put('/uploads', function (req, res) {
-    console.log("Client wants to update.");
+var fs = require('fs');
+var google = require('googleapis');
+var storage = google.storage('v1');
+app.post('/uploads',  function(req, res){
+     var fstream;
+     var photo = req.body.uploads;
+    var type = req.body.typeId;
+    var privacy = req.body.privacyId;
+    var id = req.body.userId;
 
-    var photo = req.body.fileInput;
-	var gcs = gcloud.storage();
-	var bucket = gcs.bucket('gs://bggram-d9ba0.appspot.com/'+firebase.User.uid);
-	bucket.upload(photo, function(err, file) {
-  
-	});
+    req.pipe(req.busboy);
+    req.busboy.on("file",function(fieldName,file,fileName){
+        console.log(fileName);
+        // fstream = fs.createWriteStream("/bggram-d9ba0.appspot.com/Photo/IAFy6TvT6JexjvkDRCQIMEmV76j1/"+fileName);
+        // file.pipe(fstream);
+        // fstream.on("close",function(){
+        //     res.redirect('back');
+        // });
+        var bucket = gcs.bucket("bggram-d9ba0.appspot.com");
+        storage.buckets.update("/Photo/IAFy6TvT6JexjvkDRCQIMEmV76j1/"+file, function(err, file) {
+        if (!err) {
+                res.status(200).send("file uploaded");
+            }else{
+                res.status(500).send("fail to upload." + err);
+            }
+        });
+    });
 
-
-    // var storageRef = storage.ref("Photo/" + firebase.User.uid);
-    // var imagesRef = storageRef.child(photo.name);
-    // // updateDatabase(photo.name, privacy, theme);
-    // imagesRef.put(photo).then(function(snapshot) {
-    //       console.log('Uploaded Photo!');
-    //       window.location.reload();
-    //     });
-    console.log('Uploaded Photo!');
-
-    res.send("ok!")
 
 });
-// app.get('/static/scripts/uploads.js',function(req,res){
-// 	console.log("here");
-// 	global.snapshot = etriveData.on(function (snapshot) {return snapshot;});
-// 	res.send(snapshot);
-// });
-

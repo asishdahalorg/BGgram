@@ -6,16 +6,23 @@
   "dependencies": {
     "@google-cloud/storage": "^0.4.0",
     "body-parser": "^1.15.2",
+    "connect-busboy": "0.0.2",
     "express": "^4.14.0",
     "firebase": "^3.5.2",
-    "gcloud": "^0.37.0",
+    "google-cloud": "^0.43.0",
+    "googleapis": "^14.1.0",
     "jasmine-sinon": "^0.4.0",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node nodeApp.js"
+  },
+  "engines":{
+    "node": "4.5.0",
+    "npm": "2.15.9"
   },
   "repository": {
     "type": "git",
