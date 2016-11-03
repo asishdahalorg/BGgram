@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var firebase = require("firebase/");
 var express = require('express');
@@ -12,6 +12,7 @@ var bodyParser = require('body-parser');
 // var upload = multer({ dest: 'uploads/' });
 let busboy = require("connect-busboy");
 app.use(busboy());
+
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: false
@@ -29,15 +30,15 @@ firebase.initializeApp({
     messagingSenderId: "50803099095"
 });
 
-app.get("'", function(req,res){
-	res.send("Hello");
-});
-var port = process.env.PORT || 3000;
-app.use('/', express.static(__dirname + '/public'));
+var port = process.env.PORT || 8080;
+
+app.use(express.static(__dirname + '/public'));
+
+app.set('html',__dirname + '/html');
 
 var path = require('path');
 app.get('/',function(req,res){
-	res.sendFile(path.join(__dirname,'html/','index.html'))
+	res.render('index.html');
 });
 
 app.listen(port, function(){
