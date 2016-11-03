@@ -130,7 +130,12 @@
     <div class="container-fluid search">
         <div class="pull-right">
             <button class="topFile">Browse</button>
-            <input class = "fileInput choose" type="file" ></input>
+            <form id="uploadForm" action = "/uploads" method = "POST" >
+                 <input class = "fileInput choose" id="uploads" name="uploads[]" type="file"/>
+                 <input id = "userId" name="userId" type = "hidden"/>
+                 <input id="typeId" name="typeId" type="hidden"/>
+                 <input id="privacyId" name="privacyId" type="hidden"/>
+            </form>
             <div class = "modal-container" id = "modalPanel"></div>
         </div>
 
