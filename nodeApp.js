@@ -15,17 +15,15 @@ firebase.initializeApp({
     databaseURL: "https://bggram-d9ba0.firebaseio.com/"
 });
 
-app.get("'", function(req,res){
-	res.send("Hello");
-});
-
 var port = process.env.PORT || 8080;
 
-app.use('/', express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
+
+app.set('html',__dirname + '/html');
 
 var path = require('path');
 app.get('/',function(req,res){
-	res.sendFile(path.join(__dirname,'html/','index.html'))
+	res.render('index.html');
 });
 
 app.listen(port, function(){
