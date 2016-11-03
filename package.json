@@ -13,7 +13,6 @@
     "google-protobuf": "^3.1.1",
     "googleapis": "^14.1.0",
     "jasmine-sinon": "^0.4.0",
-    "protobufjs": "^5.0.1",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2"
   },
