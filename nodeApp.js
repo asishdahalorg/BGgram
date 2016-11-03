@@ -28,12 +28,12 @@ app.set("port",(process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-app.set('html',__dirname + '/html');
-app.set("view engine", "ejs");
+//app.set('html',__dirname + '/html');
+//app.set("view engine", "ejs");
 
 var path = require('path');
 app.get('/',function(req,res){
-	res.render('index.html');
+	res.render('/static/html/index.html');
 });
 
 app.listen(app.get("port"), function(){
