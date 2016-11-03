@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Welcome to BGgram, home of the best and most user friendly online image\r and background editor. Choose your like from millions of trending images, \r and edit it to your desires.",
   "main": "nodeApp.js",
+  "scripts":{
+    "start": "node nodeApp.js"
+    },
   "dependencies": {
     "@google-cloud/storage": "^0.4.0",
     "body-parser": "^1.15.2",
