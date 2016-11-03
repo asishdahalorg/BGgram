@@ -33,7 +33,7 @@ app.use(express.static(__dirname + '/public'));
 
 var path = require('path');
 app.get('/',function(req,res){
-	res.render('/static/html/index.html');
+	res.sendFile('index.html');
 });
 
 app.listen(app.get("port"), function(){
