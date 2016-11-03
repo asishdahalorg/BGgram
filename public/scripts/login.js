@@ -34,6 +34,9 @@ $(function () {
     const loggedoutmenu = $('#login-dp');
     const logininvite = $('#logininfo');
 
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/plus.login');
+
     var panelState = false;
     ModalPanel = React.createClass({
         displayName:"ModalPanel",
@@ -151,6 +154,15 @@ $(function () {
                                         type: "submit"
                                     }, 'Sign in')
                                 ),
+                                React.createElement('li', {className: 'divider'}),
+                                React.createElement('div', {className: "col-md-12"},
+                                    React.createElement('button', {
+                                        className: "btn btn-default btn-block",
+                                        id: "googlelogin",
+                                        type: "submit"
+                                    }, 'Google sign in')
+                                ),
+                                React.createElement('li', {className: 'divider'}),
                                 React.createElement('div', {className: "bottom text-center"},
                                     React.createElement('a', {href: 'register.html'},
                                         React.createElement('b', null, 'Register')
@@ -264,6 +276,20 @@ $(function () {
                 const auth = firebase.auth();
 
                 const promise = auth.signInWithEmailAndPassword(email, pass);
+                promise.then(function () {
+                    $(document).ready(function () {
+                        window.location.reload();
+                    });
+                });
+                promise.catch(function (error) {
+                    console.log(error);
+                });
+            });
+
+            $("#googlelogin").click(function () {
+                const auth = firebase.auth();
+
+                const promise = auth.signInWithPopup(provider);
                 promise.then(function () {
                     $(document).ready(function () {
                         window.location.reload();
