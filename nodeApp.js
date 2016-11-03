@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 firebase.initializeApp({
     serviceAccount: "privkey.json",
-    databaseURL: "https://bggram-d9ba0.firebaseio.com/"
+    databaseURL: "https://bggram-d9ba0.firebaseio.com/",
     authDomain: "bggram-d9ba0.firebaseapp.com",
     databaseURL: "https://bggram-d9ba0.firebaseio.com/",
     storageBucket: "bggram-d9ba0.appspot.com",
@@ -56,6 +56,8 @@ var gcs = storage({
 
 
 var fs = require('fs');
+var google = require('googleapis');
+var storage = google.storage('v1');
 app.post('/uploads',  function(req, res){
      var fstream;
      var photo = req.body.uploads;
@@ -65,20 +67,19 @@ app.post('/uploads',  function(req, res){
     req.pipe(req.busboy);
     req.busboy.on("file",function(fieldName,file,fileName){
         console.log(fileName);
-        fstream = fs.createWriteStream("https://firebasestorage.googleapis.com/v0/b/bggram-d9ba0.appspot.com/o/Photo%"+
-                                       "IAFy6TvT6JexjvkDRCQIMEmV76j1"+"%"+fileName);
-        file.pipe(fstream);
-        fstream.on("close",function(){
-            res.redirect('back');
+        // fstream = fs.createWriteStream("/bggram-d9ba0.appspot.com/Photo/IAFy6TvT6JexjvkDRCQIMEmV76j1/"+fileName);
+        // file.pipe(fstream);
+        // fstream.on("close",function(){
+        //     res.redirect('back');
+        // });
+        var bucket = gcs.bucket("/bggram-d9ba0.appspot.com/");
+        storage.buckets.update("/Photo/IAFy6TvT6JexjvkDRCQIMEmV76j1/"+file, function(err, file) {
+        if (!err) {
+                res.status(200).send("file uploaded");
+            }else{
+                res.status(500).send("fail to upload." + err);
+            }
         });
-        var bucket = gcs.bucket("Photo");
-    bucket.upload("/IAFy6TvT6JexjvkDRCQIMEmV76j1/"+fileName, function(err, file) {
-    if (!err) {
-            res.status(200).send("file uploaded");
-        }else{
-            res.status(500).send("fail to upload." + err);
-        }
-    });
     });
    
     
