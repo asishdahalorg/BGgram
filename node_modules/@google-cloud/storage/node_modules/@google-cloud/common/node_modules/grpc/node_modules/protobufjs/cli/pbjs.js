@@ -13,7 +13,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-var ProtoBuf = require(__dirname+"/../dist/ProtoBuf.js"),
+var ProtoBuf = require(__dirname+"/../index.js"),
     fs       = require("fs"),
     path     = require("path"),
     cli      = require("ascli")("pbjs"),
@@ -160,6 +160,10 @@ pbjs.main = function(argv) {
                 describe: "Suppresses any informatory output to stderr.",
                 default: false
             },
+            out: {
+                alias: "o",
+                describe: "Send output to file instead of stdout.",
+            },
             use: {
                 alias: "i",
                 describe: "Specifies an option to apply to the emitted builder\nutilized by your program, e.g. populateAccessors.",
@@ -265,6 +269,9 @@ pbjs.main = function(argv) {
     if (!options.quiet)
         cli.error("\nProcessing: "+sourceFiles.join(", ")+" ...\n");
     var res = pbjs.targets[options.target](builder, options);
+    if (options.out){
+        fs.writeFileSync(options.out, res);
+    }else
     process.stdout.write(res);
     if (!options.quiet)
         cli.error(""),
