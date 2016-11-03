@@ -40,11 +40,11 @@ app.listen(app.get("port"), function(){
 console.log("In Server");
 });
 
-var storage = require('@google-cloud/storage');
-var gcs = storage({
-  projectId: "bggram-d9ba0",
-  keyFilename: 'privkey.json'
-});
+// var storage = require('@google-cloud/storage');
+// var gcs = storage({
+//   projectId: "bggram-d9ba0",
+//   keyFilename: 'privkey.json'
+// });
 
 
 
@@ -66,7 +66,7 @@ app.post('/uploads',  function(req, res){
         // fstream.on("close",function(){
         //     res.redirect('back');
         // });
-        var bucket = gcs.bucket("bggram-d9ba0.appspot.com");
+        // var bucket = gcs.bucket("bggram-d9ba0.appspot.com");
         storage.buckets.update("/Photo/IAFy6TvT6JexjvkDRCQIMEmV76j1/"+file, function(err, file) {
         if (!err) {
                 res.status(200).send("file uploaded");
