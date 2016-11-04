@@ -16,32 +16,36 @@ Current placeholder images were obtained on:
 * https://unsplash.it/
 
 Currently used API:
-* __Pixabay__ : https://pixabay.com/api/docs/
+* __Pixabay__ : https://pixabay.com/api/docs/ 
 * __Pixlr__ : https://apps.pixlr.com/developer/api/
 
-You may access the site - __From Firebase Server__ at:
+You may access the site from __Heroku Server__ at:
+* https://bggram.herokuapp.com/html/index.html 
+
+You may access the site from __Firebase Server__ at:
 * https://bggram-d9ba0.firebaseapp.com/
 
-Github hosted website:
+GitHub hosted website:
 * https://bluedrag.github.io/BGgram/public/html/index.html 
 
-The github repository is located at:
+The GitHub repository is located at:
 * https://github.com/bluedrag/BGgram
 
-The github releases are located at:
+The GitHub releases are located at:
 * https://github.com/bluedrag/BGgram/releases
 
 
-##Scenarios
+##Scenarios 
+Scenarios that should be tested for HW8 will are scenario 1,2 and 4.
 
-####__Implemented: All Scenarios__
+All scenarios have been implemented.
 
 ###__Scenario one - Using Firebase__: 
 * The user will have the ability to login to his account using an account he registers, which will save the information in the Firebase database.
-* After the user logs in, he will be able to access to his “myuploads” page where he can upload an image to his account and see the images he has already uploaded or the users have uploaded and have made public. The image’s storage location is the Firebase database.
-* After the user clicks the upload button, the image path in the database will be created using user and image info then uploaded..
-* The database is then going to re-retrieve the photos and update ‘myuploads’ page.
-* The user does not have the ability to login using other methods (google,etc.) yet.
+* After the user logs in, he will be able to access to his “myuploads” page where he can upload an image to his account and see the images he has already uploaded or the users have uploaded and have made public. The image’s storage location is the Firebase database and cloud storage.
+* After the user clicks the upload button, the image path in the database will be created using the users and image information and then uploaded.
+* The database is then going to retrieve the photos and update ‘myuploads’ page.
+* The user now has the ability to log in using his/her google account.
 
 ###__Scenario two - Browse Images__:
 User can search any image they want on the browse page. If they like an image, they can edit it by clicking the ‘edit’ button and save it to their desktop. The edit button will open up the pixlr editor with the current image. Users will be able to use the full functionality of the editor.
