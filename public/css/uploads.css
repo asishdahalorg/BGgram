@@ -20,7 +20,9 @@ body {
     color: #333;
     display: inline !important;
     height: 24px;
-    width: 197px;
+    width: 200px;
+    padding-left: 20px;
+    margin-top: 7px;
 }
 .upload, .topFile {
     background: #fefefe none repeat scroll 0 0;

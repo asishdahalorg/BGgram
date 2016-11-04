@@ -39,33 +39,52 @@ var google = require('googleapis');
 var storage = google.storage('v1');
 
 app.post('/uploads',  function(req, res){
-    var fstream;
-    var photo = req.body.uploads;
-    var type = req.body.typeId;
-    var privacy = req.body.privacyId;
-    var id = req.body.userId;
+    // var fstream;
+    // var photo = req.body.uploads;
+    // var type = req.body.typeId;
+    // var privacy = req.body.privacyId;
+    // var id = req.body.userId;
 
-    req.pipe(req.busboy);
+    // req.pipe(req.busboy);
 
 
-    req.busboy.on("file",function(fieldName,file,fileName){
-        console.log(fileName);
+    // req.busboy.on("file",function(fieldName,file,fileName){
+    //     console.log(fileName);
+    //     google.auth.getApplicationDefault(function(err, authClient) {
+    //       if (err) {
+    //         console.log('Authentication failed because of ', err);
+    //         return;
+    //       }
+    //       if (authClient.createScopedRequired && authClient.createScopedRequired()) {
+    //         var scopes = ['https://www.googleapis.com/auth/cloud-platform'];
+    //         authClient = authClient.createScoped(scopes);
+    //       }
+    //       var bucketDest = id+"/"+file;
+    //      var request = {
+    //         // TODO: Change placeholders below to appropriate parameter values for the 'update' method:
 
-         var request = {
-            // TODO: Change placeholders below to appropriate parameter values for the 'update' method:
+    //         // * Name of a bucket.
+    //         bucket: "bggram-d9ba0.appspot.com/",
 
-            // * Name of a bucket.
-            bucket: "bggram-d9ba0.appspot.com/Photo/IAFy6TvT6JexjvkDRCQIMEmV76j1/"+file,
-
-            resource: {}
-          };
-
-        storage.buckets.update(request, function(err, result) {
-        if (!err) {
-                res.status(200).send("File uploaded"+result);
-            }else{
-                res.status(500).send("fail to upload." + err);
-            }
+    //         resource: {bucketDest},
+    //          // Auth client
+    //          auth: authClient
+    //       };
+    //     storage.buckets.update(request, function(err, result) {
+    //         if (!err) {
+    //                 res.status(200).send("File uploaded"+result);
+    //             }else{
+    //                 res.status(500).send("fail to upload." + err);
+    //             }
+    //         });
+    //         storage.buckets.update(request, function(err, result) {
+    //         if (!err) {
+    //                 res.status(200).send("File uploaded"+result);
+    //             }else{
+    //                 res.status(500).send("fail to upload." + err);
+    //             }
+            });
         });
     });
 });
+

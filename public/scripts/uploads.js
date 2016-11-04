@@ -176,7 +176,6 @@ $(function ()
             var modalPanel = document.getElementById("modalPanel");
             RenderedModalPanel = ReactDOM.render( React.createElement(ModalPanel),modalPanel);
 
-
             function onSave(){
                 var privacy =  $("input[name='privacy']:checked").val();
                 var theme =  $("input[name='type']:checked").val();
@@ -196,29 +195,36 @@ $(function ()
             // new added photos.
             function uploadPhoto(privacy, theme) {
                 var photo = $(".fileInput")[0].files[0];
-                var photoFile = new FormData();
-                photoFile.append("img", photo);
-                $.ajax({
-                    type: "POST",
-                    contentType: false,
-                    url: "/uploads",
-                    data: photoFile,
-                    processData: false,
-                    cache: false,
-                    sucess: function(data){
-                        console.log(data);
-                    },
-                    error: function(data){
-                        console.log(data);
-                    }
-
-                });
-                // $.ajax({
-                //     url: "/uploads",
-                //     type: 'PUT',
-                //     data: { fileInput: "photo"}});
+                var photo = $(".fileInput")[0].files[0];
+                var storageRef = storage.ref("Photo/" + user.uid);
+                var imagesRef = storageRef.child(photo.name);
                 updateDatabase(photo.name, privacy, theme);
-                window.location.reload();
+                imagesRef.put(photo).then(function(snapshot) {
+                      console.log('Uploaded Photo!');
+                      window.location.reload();
+                      updateDatabase(photo.name, privacy, theme);
+                    });
+                // var photoFile = new FormData();
+                // photoFile.append("typeId",$("input[name='privacy']:checked").val());
+                //     formData.append("privacyId",$("input[name='type']:checked").val());
+                //     formData.append("userId",$("#userId").val());
+                // photoFile.append("img", photo);
+                // $.ajax({
+                //     type: "POST",
+                //     contentType: false,
+                //     url: "/uploads",
+                //     data: photoFile,
+                //     processData: false,
+                //     cache: false,
+                //     sucess: function(data){
+                //         console.log(data);
+                //     },
+                //     error: function(data){
+                //         console.log(data);
+                //     }
+                // });
+                
+                // window.location.reload();
             }
 
             //Updating firebase database if a new photo has been uploaded. 

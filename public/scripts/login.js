@@ -118,13 +118,13 @@ $(function () {
 
         render: function () {
             return (
-                React.createElement('li', {className: "dropdown"},
+                React.createElement('ul', {className: "dropdown"},
                     React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
                         React.createElement("b", null, 'Login'),
                         React.createElement("span", {className: 'caret'})
                     ),
                     React.createElement('ul', {className: "dropdown-menu"},
-                        React.createElement('li', null,
+                        React.createElement('ui', null,
                             React.createElement('div', {className: "row"},
                                 React.createElement('div', {className: "col-md-12"},
                                     React.createElement('label', {className: "sr-only", htmlFor: "useremail"}),
