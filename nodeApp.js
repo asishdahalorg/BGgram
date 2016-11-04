@@ -83,8 +83,8 @@ app.post('/uploads',  function(req, res){
     //             }else{
     //                 res.status(500).send("fail to upload." + err);
     //             }
-            });
-        });
-    });
+    //         });
+    //     });
+    // });
 });
 
