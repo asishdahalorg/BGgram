@@ -38,7 +38,7 @@ The GitHub releases are located at:
 ##Scenarios 
 Scenarios that should be tested for HW8 will are scenario 1,2 and 4.
 
-For testing purposes can use __username__ test@gmail and __password__: testing, sign in with a gmail account or create a new account.
+For testing purposes can use __username__: test@gmail and __password__: testing, sign in with a gmail account or create a new account.
 
 All scenarios have been implemented.
 
