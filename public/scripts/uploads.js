@@ -180,68 +180,15 @@ $(function ()
             function onSave(){
                 var privacy =  $("input[name='privacy']:checked").val();
                 var theme =  $("input[name='type']:checked").val();
-                $("#typeId").val($("input[name='privacy']:checked").val());
-                $("#privacyId").val($("input[name='type']:checked").val());
-
                 if(privacy && theme){
-                    $(".imageOuter").remove();
-                    //$("#uploadForm").submit();
-                    var formData = new FormData();
-
-                    // loop through all the selected files
-                    var files = $("#uploads")[0].files;
-                    for (var i = 0; i < files.length; i++) {
-                      var file = files[i];
-
-                      // add the files to formData object for the data payload
-                      formData.append('uploads', file, file.name);
-                    }
-                    formData.append("typeId",$("input[name='privacy']:checked").val());
-                    formData.append("privacyId",$("input[name='type']:checked").val());
-                    formData.append("userId",$("#userId").val());
-
-                   $.ajax({
-                      url: '/uploads',
-                      type: 'POST',
-                      data: formData,
-                      processData: false,
-                      contentType: false,
-                      success: function(data){
-                          console.log('upload successful!\n' + data);
-                      },
-                      xhr: function() {
-                        // create an XMLHttpRequest
-                        var xhr = new XMLHttpRequest();
-
-                        // listen to the 'progress' event
-                        xhr.upload.addEventListener('progress', function(evt) {
-
-                          if (evt.lengthComputable) {
-                            // calculate the percentage of upload completed
-                            var percentComplete = evt.loaded / evt.total;
-                            percentComplete = parseInt(percentComplete * 100);
-
-                            // update the Bootstrap progress bar with the new percentage
-                            console.log(percentComplete + '%');
-
-                            // once the upload reaches 100%, set the progress bar text to done
-                            if (percentComplete === 100) {
-                              console.log('Done');
-                            }
-
-                          }
-
-                        }, false);
-
-                        return xhr;
-                      }
-                    });
+                $(".imageOuter").remove();
+                uploadPhoto(privacy, theme);
                 }
             }
 
             // This is to make the file chooser button look better.
             $(".topFile").click(function(){
-                $("#userId").val(user.uid);
+
                 $(".fileInput").click();
             });
 
@@ -255,7 +202,7 @@ $(function ()
                     type: "POST",
                     contentType: false,
                     url: "/uploads",
-                    data: {"img":photoFile},
+                    data: photoFile,
                     processData: false,
                     cache: false,
                     sucess: function(data){
