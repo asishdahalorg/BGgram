@@ -38,11 +38,13 @@ The GitHub releases are located at:
 ##Scenarios 
 Scenarios that should be tested for HW8 will are scenario 1,2 and 4.
 
+For testing purposes can use __username__: test@gmail and __password__: testing, sign in with a gmail account or create a new account.
+
 All scenarios have been implemented.
 
 ###__Scenario one - Using Firebase__: 
 * The user will have the ability to login to his account using an account he registers, which will save the information in the Firebase database.
-* After the user logs in, he will be able to access to his “myuploads” page where he can upload an image to his account and see the images he has already uploaded or the users have uploaded and have made public. The image’s storage location is the Firebase database and cloud storage.
+* After the user logs in, he will be able to access to his “myuploads” page where he can upload an image to his account and see the images he has already uploaded or the users have uploaded and have made public. The image’s storage location is the Firebase database and storage.
 * After the user clicks the upload button, the image path in the database will be created using the users and image information and then uploaded.
 * The database is then going to retrieve the photos and update ‘myuploads’ page.
 * The user now has the ability to log in using his/her google account.
