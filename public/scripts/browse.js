@@ -34,10 +34,10 @@ $(function () {
         // Initially finds public photos no matter theire theme.
         showPhoto("public", null);
     }
-    
+
 // Template code from http://www.w3schools.com/howto/howto_js_progressbar.asp tutorials.
 // Bar that shows the progress of getting photos to display them to user.
-            beginBar();
+if(!user)$("#barOutline").hide();
             function beginBar() {
                 var bar = document.getElementById("bar"); 
                 var width = 1;
@@ -55,6 +55,12 @@ $(function () {
 
     // This finds photos and displays them in the browse gallery.
     function showPhoto(privacy, theme1){
+
+            if(user) 
+            {
+                $("#barOutline").show();
+                beginBar();
+            }
             retriveData = firebase.database().ref('users/');
             arr =  new Set();
             retriveData.on('value', function (snapshot) {
