@@ -5,9 +5,10 @@
 
 var TestUtils;
 $(function() {
-    var Perf = require('react-addons-perf'); // ES5 with npm
-    TestUtils = React.addons.TestUtils;
+    // var Perf = require('react-addons-perf'); // ES5 with npm
+
     describe("Various buttons", function () {
+            TestUtils = React.addons.TestUtils;
         it("has firebase", function () {
             expect(firebase).not.toBeNull();
         });
