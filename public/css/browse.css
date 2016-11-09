@@ -14,3 +14,21 @@
 #imgselectioncontainer {
     margin: 1%;
 }
+/*Template code for #barOutline and #bar from http://www.w3schools.com/howto/howto_js_progressbar.asp tutorials.*/
+#barOutline {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: #d9d9d9;
+}
+#bar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: gray;
+}
+#barOutline {
+    margin-top: 10%;
+    width: 46%;
+    margin-left: 23%;
+}

@@ -34,6 +34,23 @@ $(function () {
         // Initially finds public photos no matter theire theme.
         showPhoto("public", null);
     }
+    
+// Template code from http://www.w3schools.com/howto/howto_js_progressbar.asp tutorials.
+// Bar that shows the progress of getting photos to display them to user.
+            beginBar();
+            function beginBar() {
+                var bar = document.getElementById("bar"); 
+                var width = 1;
+                var id = setInterval(outline, 10);
+                function outline() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                    } else {
+                        width++; 
+                        bar.style.width = width + '%'; 
+                    }
+                }
+            }
 
 
     // This finds photos and displays them in the browse gallery.
@@ -84,7 +101,8 @@ $(function () {
                         }
                     }
                 });
-                $("#presearch").remove();
+                // $("#presearch").remove();
+                $("#barOutline").remove();
 
                 // In case the array of photos is null.
                 if(arr==null){console.log("Empty Set");}

@@ -6,25 +6,26 @@ body {
 .imageOuter {
     margin: 0.2%;
 }
-.choose .uploads {
+/*.choose .uploads {
     background: #fafafa none repeat scroll 0 0;
     color: #968f8f;
     float: left;
     position: relative;
-}
-.choose {
+}*/
+/*.choose {
     display: inline-flex !important;
     width: 20%;
-}
+}*/
 .fileInput {
-    color: #333;
+  /*  color: #333;
     display: inline !important;
     height: 24px;
     width: 200px;
     padding-left: 20px;
-    margin-top: 7px;
+    margin-top: 7px;*/
+    display: none !important;
 }
-.upload, .topFile {
+/*.upload, .topFile {
     background: #fefefe none repeat scroll 0 0;
     border-radius: 5px;
     border-style: solid;
@@ -32,10 +33,10 @@ body {
     color: #333;
     height: 28px;
     width: 97px;
-}
-.upload:hover, .topFile:hover {
+}*/
+/*.upload:hover, .topFile:hover {
     background: #e3e3e3 none repeat scroll 0 0;
-}
+}*/
 .col-lg-3, .col-md-4, .col-sm-6, .col-xs-12 {
     padding: 0 !important;
     width: 24% !important;
@@ -44,8 +45,9 @@ body {
     margin: 1%;
 }
 .topFile {
-    position: absolute;
-    z-index: 100;
+    margin-top: 6px;
+   /* position: absolute;
+    z-index: 100;*/
 }
 .hovereffect {
     border-radius: 3px;
@@ -60,4 +62,23 @@ body {
 }
 .modal-container .modal, .modal-container .modal-backdrop {
     position: absolute;
+}
+
+/*Template code for #barOutline and #bar from http://www.w3schools.com/howto/howto_js_progressbar.asp tutorials.*/
+#barOutline {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: #d9d9d9;
+}
+#bar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: gray;
+}
+#barOutline {
+    margin-top: 10%;
+    width: 46%;
+    margin-left: 23%;
 }

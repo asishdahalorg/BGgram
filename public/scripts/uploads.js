@@ -45,7 +45,7 @@ $(function ()
                                 }
                             }
                             loadingComplete=true;
-                            $("#loadingGif").remove();
+                            $("#barOutline").remove();
                             getPhotos();
                         }
                     });
@@ -123,10 +123,10 @@ $(function ()
                   },
                   render: function(){
                     return React.createElement("div",null,
-                              React.createElement("button",{
-                              className: "btn btn-default upload1",
-                              onClick:this.open
-                            },"Upload a Photo"),
+                            //   React.createElement("button",{
+                            //   className: "btn btn-default upload1",
+                            //   onClick:this.open
+                            // },"Upload a Photo"),
                              React.createElement(ReactBootstrap.Modal,{show:this.state.showModal,onHide:this.close},
                                 React.createElement(ReactBootstrap.Modal.Header,null,
                                         React.createElement("b",null,"Upload a New Photo"),
@@ -176,6 +176,23 @@ $(function ()
             var modalPanel = document.getElementById("modalPanel");
             RenderedModalPanel = ReactDOM.render( React.createElement(ModalPanel),modalPanel);
 
+// Template code from http://www.w3schools.com/howto/howto_js_progressbar.asp tutorials.
+// Bar that shows the progress of getting photos to display them to user.
+            beginBar();
+            function beginBar() {
+                var bar = document.getElementById("bar"); 
+                var width = 1;
+                var id = setInterval(outline, 10);
+                function outline() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                    } else {
+                        width++; 
+                        bar.style.width = width + '%'; 
+                    }
+                }
+            }
+
             function onSave(){
                 var privacy =  $("input[name='privacy']:checked").val();
                 var theme =  $("input[name='type']:checked").val();
@@ -189,21 +206,33 @@ $(function ()
             $(".topFile").click(function(){
 
                 $(".fileInput").click();
+                       $(".fileInput").change(RenderedModalPanel.open());
             });
 
             // This uploads a photo by updating the storage of firebase with
             // new added photos.
             function uploadPhoto(privacy, theme) {
+                // var photo = $(".fileInput")[0].files[0];
                 var photo = $(".fileInput")[0].files[0];
-                var photo = $(".fileInput")[0].files[0];
-                var storageRef = storage.ref("Photo/" + user.uid);
-                var imagesRef = storageRef.child(photo.name);
-                updateDatabase(photo.name, privacy, theme);
-                imagesRef.put(photo).then(function(snapshot) {
-                      console.log('Uploaded Photo!');
-                      window.location.reload();
-                      updateDatabase(photo.name, privacy, theme);
-                    });
+
+                var dot = photo.name.lastIndexOf('.');
+                var tempPhoto = photo.name.substring(0,dot)+'_'+photo.name.substring(dot+1);
+                var reg = new RegExp("^[a-zA-Z0-9_]+$");
+                if(!reg.test(tempPhoto))
+                {
+                    alert("Please change the name of the photo. The name should not contain any symbol.");
+                    window.location.reload();
+                }
+                else{
+                    var storageRef = storage.ref("Photo/" + user.uid);
+                    var imagesRef = storageRef.child(photo.name);
+                    updateDatabase(photo.name, privacy, theme);
+                    imagesRef.put(photo).then(function(snapshot) {
+                          console.log('Uploaded Photo!');
+                          window.location.reload();
+                          updateDatabase(photo.name, privacy, theme);
+                        });
+                }
                 // var photoFile = new FormData();
                 // photoFile.append("typeId",$("input[name='privacy']:checked").val());
                 //     formData.append("privacyId",$("input[name='type']:checked").val());
