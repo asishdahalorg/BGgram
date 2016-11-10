@@ -282,7 +282,10 @@ $(function () {
                     });
                 });
                 promise.catch(function (error) {
+
                     console.log(error);
+                    alert("Incorrect username or password. Please try again.");
+                    window.location.reload();
                 });
             });
 

@@ -35,9 +35,32 @@ $(function () {
         showPhoto("public", null);
     }
 
+// Template code from http://www.w3schools.com/howto/howto_js_progressbar.asp tutorials.
+// Bar that shows the progress of getting photos to display them to user.
+if(!user)$("#barOutline").hide();
+            function beginBar() {
+                var bar = document.getElementById("bar"); 
+                var width = 1;
+                var id = setInterval(outline, 10);
+                function outline() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                    } else {
+                        width++; 
+                        bar.style.width = width + '%'; 
+                    }
+                }
+            }
+
 
     // This finds photos and displays them in the browse gallery.
     function showPhoto(privacy, theme1){
+
+            if(user) 
+            {
+                $("#barOutline").show();
+                beginBar();
+            }
             retriveData = firebase.database().ref('users/');
             arr =  new Set();
             retriveData.on('value', function (snapshot) {
@@ -84,7 +107,8 @@ $(function () {
                         }
                     }
                 });
-                $("#presearch").remove();
+                // $("#presearch").remove();
+                $("#barOutline").remove();
 
                 // In case the array of photos is null.
                 if(arr==null){console.log("Empty Set");}
