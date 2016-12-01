@@ -6,37 +6,9 @@ body {
 .imageOuter {
     margin: 0.2%;
 }
-/*.choose .uploads {
-    background: #fafafa none repeat scroll 0 0;
-    color: #968f8f;
-    float: left;
-    position: relative;
-}*/
-/*.choose {
-    display: inline-flex !important;
-    width: 20%;
-}*/
 .fileInput {
-  /*  color: #333;
-    display: inline !important;
-    height: 24px;
-    width: 200px;
-    padding-left: 20px;
-    margin-top: 7px;*/
     display: none !important;
 }
-/*.upload, .topFile {
-    background: #fefefe none repeat scroll 0 0;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 1px;
-    color: #333;
-    height: 28px;
-    width: 97px;
-}*/
-/*.upload:hover, .topFile:hover {
-    background: #e3e3e3 none repeat scroll 0 0;
-}*/
 .col-lg-3, .col-md-4, .col-sm-6, .col-xs-12 {
     padding: 0 !important;
     width: 24% !important;
@@ -46,8 +18,13 @@ body {
 }
 .topFile {
     margin-top: 6px;
-   /* position: absolute;
-    z-index: 100;*/
+    background: rgba(245, 245, 245, 0);
+    border-color: rgba(255, 255, 255, 0);
+    color: #797777;
+    padding: 7px;
+}
+.topFile:hover{
+    color: black;
 }
 .hovereffect {
     border-radius: 3px;

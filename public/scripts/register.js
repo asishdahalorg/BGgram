@@ -11,6 +11,8 @@ $(function ()
     var email;
     var mainpass;
 
+     $("#dialog").hide();
+
 //  After registering now it goes traight to uploads instead of reloading same page. -Kimberly
     function register() {
         const auth = firebase.auth();
@@ -37,22 +39,27 @@ $(function ()
             console.log(error);
         });
     }
-
     btnusersignup.addEventListener('click',function () {
-        email = registermail.value;
-        mainpass = registerpass.value;
-        const bcpass = registerpass2.value;
-        if (mainpass != bcpass){
-            $("#invalidpassword").text("Password does not match! Try again.");
-        }else {
-            const promise = firebase.auth().createUserWithEmailAndPassword(email, mainpass);
-            promise.then(function() {
 
-                    $("#usersignup").click(register());
-            });
-            promise.catch(function (error) {
-                console.log(error);
-            });
-        }
+            email = registermail.value;
+            mainpass = registerpass.value;
+            const bcpass = registerpass2.value;
+            if (mainpass != bcpass){
+                $("#dialog").text("");
+                $("#dialog").append("Password does not match! Try again");
+                $("#dialog").dialog({closeText:"X", title:" An error occur "});
+                // $("#invalidpassword").text("Password does not match! Try again.");
+            }else {
+                const promise = firebase.auth().createUserWithEmailAndPassword(email, mainpass);
+                promise.then(function() {
+
+                        $("#usersignup").click(register());
+                });
+                promise.catch(function (error) {
+                    $("#dialog").text("");
+                    $("#dialog").append(error.message);
+                    $("#dialog").dialog({closeText:"X", title:" An error occur "});
+                });
+            }
     });
 });

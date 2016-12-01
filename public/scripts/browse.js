@@ -20,6 +20,7 @@ $(function () {
 
 
     // Initializes the user info
+
     function initializePage(){
         firebase.auth().onAuthStateChanged(function (user1) {
             var userData = firebase.database().ref('users/' + user1.uid);
@@ -31,8 +32,9 @@ $(function () {
             });
             var retriveData;
         });
-        // Initially finds public photos no matter theire theme.
         showPhoto("public", null);
+        // Initially finds public photos no matter theire theme.
+      // showPhoto("public", null);  
     }
 
 // Template code from http://www.w3schools.com/howto/howto_js_progressbar.asp tutorials.
@@ -249,7 +251,7 @@ searchClass = ReactDOM.render( React.createElement(SearchClass),submitButton);
                     $("#imgselectioncontainer").append(tempElement);
                 });
             }
-            else {
+            else if(parseInt(data.totalHits) <= 0) {
                 console.log('No hits');
                 gallery.empty();
                 $(document).ready();
