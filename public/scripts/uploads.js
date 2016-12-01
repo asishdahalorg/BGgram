@@ -19,8 +19,14 @@ $(function ()
         For getting photos from firebase.
 */
     // Shows all public pictures at start of page
+        $("#barOutline").hide();
     function initializePage() {
         firebase.auth().onAuthStateChanged(function (){
+            if(user) 
+            {
+                $("#barOutline").show();
+                beginBar();
+            }
         // Get a reference to the storage service, which is used to create references in your storage bucket
             storage = firebase.storage();
             var arr = new Set(); 
@@ -212,7 +218,6 @@ $(function ()
             // This uploads a photo by updating the storage of firebase with
             // new added photos.
             function uploadPhoto(privacy, theme) {
-                // var photo = $(".fileInput")[0].files[0];
                 var photo = $(".fileInput")[0].files[0];
 
                 var dot = photo.name.lastIndexOf('.');
