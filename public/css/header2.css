@@ -55,3 +55,18 @@ body{
 .searchinputsubmit{
     padding-top: 6px;
 }
+.logoff{
+    background: white;
+    color: #444444;
+    border: 0;
+}
+a.link{
+    text-decoration: none;
+    color:#444444;
+}
+.menu{
+    left: -7px !IMPORTANT;
+}
+.text_center {
+    margin-left: 29px !IMPORTANT;
+}

@@ -118,12 +118,12 @@ $(function () {
 
         render: function () {
             return (
-                React.createElement('ul', {className: "dropdown"},
+                React.createElement('ul', {className: "dropdown" },
                     React.createElement("a", {className: "dropdown-toggle", 'data-toggle': "dropdown"},
                         React.createElement("b", null, 'Login'),
                         React.createElement("span", {className: 'caret'})
                     ),
-                    React.createElement('ul', {className: "dropdown-menu"},
+                    React.createElement('ul', {className: "dropdown-menu" },
                         React.createElement('ui', null,
                             React.createElement('div', {className: "row"},
                                 React.createElement('div', {className: "col-md-12"},
@@ -149,7 +149,7 @@ $(function () {
                                 ),
                                 React.createElement('div', {className: "col-md-12"},
                                     React.createElement('button', {
-                                        className: "btn btn-primary btn-block",
+                                        className: "btn logoff",
                                         id: "userlogin",
                                         type: "submit"
                                     }, 'Sign in')
@@ -157,15 +157,15 @@ $(function () {
                                 React.createElement('li', {className: 'divider'}),
                                 React.createElement('div', {className: "col-md-12"},
                                     React.createElement('button', {
-                                        className: "btn btn-default btn-block",
+                                        className: "btn logoff",
                                         id: "googlelogin",
                                         type: "submit"
                                     }, 'Google sign in')
                                 ),
-                                React.createElement('li', {className: 'divider'}),
-                                React.createElement('div', {className: "bottom text-center"},
-                                    React.createElement('a', {href: 'register.html'},
-                                        React.createElement('b', null, 'Register')
+                                React.createElement('li', {className: 'divider' }),
+                                React.createElement('div', {className: "bottom text_center"},
+                                    React.createElement('a',{href: 'register.html',className: "link"}, 'Register'
+                                        // React.createElement('b', null, 'Register')
                                     )
                                 )
                             )
@@ -196,25 +196,25 @@ $(function () {
                         React.createElement("b", null,this.state.profile),
                         React.createElement("span", {className: 'caret'})
                     ),
-                    React.createElement('ul', {className: 'dropdown-menu', role: 'menu'},
-                        React.createElement('li', {className:"text-center"},
-                            React.createElement('label',{className: 'btn btn-default btn-file',style:{}},
-                            'Browse',
-                            React.createElement('input',{type:'file',style:{display:'none'}})),
-                            React.createElement('button', {
-                                onClick:this.get_profile_pic,
-                                id: 'uploadProfilePic',
-                                className: "btn btn-primary btn-block"
-                            }, 'Update Profile Picture')
-                        ),
+                    React.createElement('ul', {className: 'dropdown-menu menu', role: 'menu'},
+                        // React.createElement('li', {className:"text-center"},
+                        //     // React.createElement('label',{className: 'btn btn-default btn-file',style:{}},
+                        //     // 'Browse',
+                        //     React.createElement('input',{type:'file',style:{display:'none'}}))
+                        //     // React.createElement('button', {
+                            //     onClick:this.get_profile_pic,
+                            //     id: 'uploadProfilePic',
+                            //     className: "btn btn-primary btn-block"
+                            // }, 'Update Profile Picture')
+                        // ,
                         React.createElement('li', {className: 'divider'}),
-                        React.createElement('li', null,
+                        React.createElement('li', {className:"text-center"},
                             React.createElement('a', {href: 'uploads.html'}, 'Uploads')),
                         React.createElement('li', {className: 'divider'}),
-                        React.createElement('li', null,
+                        React.createElement('li', {className:"text-center"},
                             React.createElement('button', {
                                 id: 'userlogoff',
-                                className: "btn btn-primary btn-block"
+                                className: "btn logoff"
                             }, 'Sign Off')
                         )
                     )
